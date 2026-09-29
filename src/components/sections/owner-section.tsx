@@ -97,22 +97,22 @@ export function OwnerSection() {
             </div>
 
             <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
-              Santosh Kumar established Saurav Medical Agency in 2004 at Kotwali Chowk, Bhagalpur. Over the past twenty years, we have built long-standing relationships with retail chemists and doctors by delivering genuine medicines with total transparency and honest pricing.
+              Santosh Kumar established Saurav Medical in 2004 at Kotwali Chowk, Bhagalpur. Over the past twenty years, he has successfully developed two specialized wholesale operations: <strong>Saurav Medical Agency</strong> dedicated to hospital surgical consumables & ethical formulations, and <strong>Saurav Medical Store Agency</strong> supplying high-margin generic medicines and bonus schemes to retail chemists.
             </p>
 
             {/* Quote Callout */}
-            <div className="relative rounded-xl bg-white border-l-4 border-[#0b1e36] p-4 sm:p-5 shadow-xs">
+            <div className="relative rounded-xl bg-white border-l-4 border-blue-900 p-4 sm:p-5 shadow-xs">
               <Quote className="w-6 h-6 text-slate-200 absolute top-3 right-3" />
               <p className="italic text-slate-800 text-xs sm:text-sm leading-relaxed">
-                &ldquo;A medical store owner&apos;s reputation depends on the quality of medicines they dispense. Our job is simple: make sure every chemist gets genuine, fresh batch medicines on time, with proper GST bills and the best wholesale margins.&rdquo;
+                &ldquo;Whether it is an emergency surgical supply for an operation theatre or high-margin generic medicines for a local chemist counter, our commitment is absolute: 100% genuine products, honest wholesale prices, and reliable same-day delivery.&rdquo;
               </p>
               <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
                 <div>
-                  <span className="font-bold text-[#0b1e36] text-xs block">
+                  <span className="font-bold text-[#071529] text-xs block">
                     {COMPANY_DETAILS.ownerName}
                   </span>
                   <span className="text-[10px] text-slate-500">
-                    Proprietor, {COMPANY_DETAILS.name}
+                    Proprietor, Saurav Medical Agency & Store
                   </span>
                 </div>
                 <div className="italic text-slate-600 text-xs border-b border-slate-300 px-3 py-0.5">
@@ -125,15 +125,15 @@ export function OwnerSection() {
             <div className="grid sm:grid-cols-2 gap-2.5 pt-1">
               {[
                 "20+ years of trusted wholesale service in Bhagalpur",
-                "Direct supply lines with 21+ leading pharma companies",
-                "Wide stock of Generics, Surgicals, Ayurvedic & OTC medicines",
+                "Division 1: Surgical consumables & ethical prescription drugs",
+                "Division 2: High-margin generic medicines & 10+1 free schemes",
                 "Computerized GST bills and fast same-day local delivery",
               ].map((point, idx) => (
                 <div
                   key={idx}
                   className="flex items-start gap-2 p-2.5 rounded-lg border border-slate-200 bg-white"
                 >
-                  <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                   <span className="text-xs text-slate-700 font-medium leading-tight">
                     {point}
                   </span>
@@ -141,12 +141,18 @@ export function OwnerSection() {
               ))}
             </div>
 
-            {/* CTA */}
-            <div className="pt-2">
-              <Button variant="primary" size="sm" asChild className="bg-[#0b1e36] text-xs font-bold">
+            {/* Dual Division CTAs */}
+            <div className="pt-2 flex flex-wrap items-center gap-2.5">
+              <Button asChild className="bg-[#0b1e36] hover:bg-[#153a6b] text-white text-xs font-bold h-10 px-4 rounded-xl">
+                <Link href="/agency" className="flex items-center gap-1.5">
+                  <span>Explore Agency (Surgical & Ethical)</span>
+                  <span>→</span>
+                </Link>
+              </Button>
+              <Button asChild className="bg-[#0284c7] hover:bg-[#0369a1] text-white text-xs font-bold h-10 px-4 rounded-xl">
                 <Link href="/store" className="flex items-center gap-1.5">
-                  <Store className="w-3.5 h-3.5 text-teal-400" />
-                  <span>Browse Wholesale Store</span>
+                  <span>Explore Generic Store</span>
+                  <span>→</span>
                 </Link>
               </Button>
             </div>

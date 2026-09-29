@@ -1,200 +1,330 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CartDrawer } from "@/components/layout/cart-drawer";
-import { getStoredCart } from "@/lib/store";
 import {
   Phone,
   ShieldCheck,
-  ShoppingBag,
   Home,
-  User,
-  Search,
   Store,
+  Stethoscope,
+  Pill,
+  Award,
+  Menu,
+  X,
+  MessageCircle,
+  ArrowRight,
+  ExternalLink,
 } from "lucide-react";
-import { COMPANY_DETAILS } from "@/lib/data";
+import { COMPANY_DETAILS, DIVISIONS } from "@/lib/data";
 
 export function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
-  const [cartOpen, setCartOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener("scroll", handleScroll);
-
-    const updateCart = () => {
-      const cart = getStoredCart();
-      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-      setCartCount(count);
-    };
-
-    updateCart();
-    window.addEventListener("cart-updated", updateCart);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("cart-updated", updateCart);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  const isAgencyActive = pathname.startsWith("/agency");
+  const isStoreActive = pathname.startsWith("/store");
+  const isHomeActive = pathname === "/";
 
   return (
     <>
-      <header className="sticky top-0 z-30 w-full transition-all duration-200 print:hidden">
-        {/* Top Statutory Compliance Ribbon (Desktop only) */}
-        <div className="bg-[#0b1e36] text-slate-300 text-xs py-1.5 px-4 border-b border-white/10 hidden md:block">
+      <header className="sticky top-0 z-30 w-full transition-all duration-300 print:hidden">
+        {/* Top Statutory Compliance Ribbon */}
+        <div className="bg-[#071529] text-blue-100 text-xs py-1.5 px-4 border-b border-blue-900/50 hidden md:block">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-6 text-[11px]">
-              <div className="flex items-center gap-1.5 text-slate-300">
-                <ShieldCheck className="w-3.5 h-3.5 text-teal-400" />
-                <span>Wholesale Pharmaceutical Supply to Licensed Retailers Only</span>
+            <div className="flex items-center gap-4 text-[11px]">
+              <div className="flex items-center gap-1.5 text-blue-200">
+                <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
+                <span className="font-medium">Form 20B & 21B Licensed Wholesale Stockist • Kotwali Chowk, Bhagalpur</span>
               </div>
-              <span className="text-white/20">|</span>
-              <span className="text-slate-400">
-                Form 20B & 21B Licensed Stockist • Kotwali Chowk, Bhagalpur
+              <span className="text-blue-400/40">|</span>
+              <span className="text-slate-300">
+                Two Specialized Divisions: Surgical & Ethical Agency + Generic Store
               </span>
             </div>
 
-            <div className="flex items-center gap-5 text-[11px]">
+            <div className="flex items-center gap-4 text-[11px]">
               <a
                 href={`tel:${COMPANY_DETAILS.mobile}`}
-                className="flex items-center gap-1.5 text-teal-300 hover:text-white font-mono font-semibold transition-colors"
+                className="flex items-center gap-1.5 text-sky-300 hover:text-white font-mono font-semibold transition-colors"
               >
-                <Phone className="w-3 h-3 text-teal-400" />
-                <span>Helpline: {COMPANY_DETAILS.phoneDisplay}</span>
+                <Phone className="w-3 h-3 text-sky-400" />
+                <span>Trade Helpline: {COMPANY_DETAILS.phoneDisplay}</span>
               </a>
-              <span className="text-white/20">|</span>
-              <span className="text-slate-300 font-medium">
-                Trade Desk: 9:00 AM – 8:30 PM
-              </span>
+              <span className="text-blue-400/40">|</span>
+              <span className="text-blue-200 font-medium">9:00 AM – 8:30 PM</span>
             </div>
           </div>
         </div>
 
         {/* Main Navigation Bar */}
         <div
-          className={`w-full transition-all duration-200 ${
+          className={`w-full transition-all duration-300 ${
             isScrolled
-              ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/90 py-2 sm:py-3"
+              ? "bg-white/95 backdrop-blur-xl shadow-md border-b border-slate-200/90 py-2 sm:py-2.5"
               : "bg-white border-b border-slate-200/80 py-2.5 sm:py-3.5"
           }`}
         >
-          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
+          <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
             {/* Logo Brand Identity */}
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 sm:flex-initial group">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white shadow-xs border border-slate-200/80 p-0.5 flex items-center justify-center shrink-0 group-hover:shadow-sm transition-all">
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 min-w-0 group">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-blue-50 to-sky-50 shadow-xs border border-blue-200/80 p-1 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:border-blue-400 transition-all">
                 <img
                   src="/logo.png"
                   alt={COMPANY_DETAILS.name}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <div className="min-w-0 flex-1">
-                <span className="font-extrabold text-[#0b1e36] text-xs sm:text-lg tracking-tight block leading-tight truncate">
-                  {COMPANY_DETAILS.name}
-                </span>
-                <span className="text-[9px] sm:text-[11px] font-semibold tracking-wider text-teal-700 uppercase block truncate">
-                  Wholesale Medicine Agency • Bhagalpur
+              <div className="min-w-0">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-black text-[#071529] text-sm sm:text-lg tracking-tight block leading-tight truncate">
+                    {COMPANY_DETAILS.name}
+                  </span>
+                  <Badge variant="outline" className="hidden sm:inline-flex text-[9px] font-bold border-blue-200 text-blue-800 bg-blue-50/80 px-1.5 py-0">
+                    Est. 2004
+                  </Badge>
+                </div>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-blue-700 tracking-tight block truncate">
+                  Agency (Surgical/Ethical) • Store (Generic)
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-6">
-              {/* Single Dynamic Toggle: Shows Store on Home, and Home on Store */}
-              {pathname === "/store" ? (
-                <Link
-                  href="/"
-                  className="text-xs font-bold transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 text-[#0b1e36] hover:bg-slate-100 shadow-xs"
-                >
-                  <Home className="w-3.5 h-3.5 text-teal-600" />
-                  <span>Home / Profile</span>
-                </Link>
-              ) : (
-                <Link
-                  href="/store"
-                  className="text-xs font-bold transition-colors flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#0b1e36] text-white hover:bg-[#163b65] shadow-xs"
-                >
-                  <Store className="w-3.5 h-3.5 text-teal-400" />
-                  <span>Wholesale Store</span>
-                  <Badge
-                    variant="accent"
-                    className="text-[9px] px-1.5 py-0 font-extrabold bg-teal-600 text-white"
-                  >
-                    Catalog
-                  </Badge>
-                </Link>
-              )}
+            <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2">
+              <Link
+                href="/"
+                className={`text-xs font-bold transition-all px-3 py-1.5 rounded-lg flex items-center gap-1.5 ${
+                  isHomeActive
+                    ? "bg-blue-50 text-blue-800 border border-blue-200/80"
+                    : "text-slate-600 hover:text-[#071529] hover:bg-slate-50"
+                }`}
+              >
+                <Home className="w-3.5 h-3.5 text-blue-600" />
+                <span>Home</span>
+              </Link>
+
+              {/* Division 1: Agency Link */}
+              <Link
+                href="/agency"
+                className={`text-xs font-bold transition-all px-3 py-1.5 rounded-lg flex items-center gap-1.5 ${
+                  isAgencyActive
+                    ? "bg-[#0b1e36] text-white shadow-xs"
+                    : "text-slate-700 hover:text-blue-900 hover:bg-blue-50/70 border border-slate-200/60"
+                }`}
+              >
+                <Stethoscope className="w-3.5 h-3.5 text-sky-400" />
+                <span>Surgical & Ethical</span>
+                <span className={`text-[9px] px-1.5 py-0 rounded font-semibold uppercase ${
+                  isAgencyActive ? "bg-blue-600 text-white" : "bg-blue-100 text-blue-800"
+                }`}>
+                  Agency
+                </span>
+              </Link>
+
+              {/* Division 2: Store Link */}
+              <Link
+                href="/store"
+                className={`text-xs font-bold transition-all px-3 py-1.5 rounded-lg flex items-center gap-1.5 ${
+                  isStoreActive
+                    ? "bg-[#0284c7] text-white shadow-xs"
+                    : "text-slate-700 hover:text-sky-900 hover:bg-sky-50/70 border border-slate-200/60"
+                }`}
+              >
+                <Pill className="w-3.5 h-3.5 text-sky-300" />
+                <span>Generic Medicine</span>
+                <span className={`text-[9px] px-1.5 py-0 rounded font-semibold uppercase ${
+                  isStoreActive ? "bg-sky-800 text-white" : "bg-sky-100 text-sky-800"
+                }`}>
+                  Store
+                </span>
+              </Link>
 
               <Link
                 href="/#credentials"
-                className="text-xs font-medium text-slate-600 hover:text-[#0b1e36] transition-colors"
+                className="text-xs font-medium text-slate-600 hover:text-[#071529] hover:bg-slate-50 px-2.5 py-1.5 rounded-lg transition-colors"
               >
                 Licenses & Trust
               </Link>
 
               <Link
-                href="/#brands"
-                className="text-xs font-medium text-slate-600 hover:text-[#0b1e36] transition-colors"
+                href="/#about"
+                className="text-xs font-medium text-slate-600 hover:text-[#071529] hover:bg-slate-50 px-2.5 py-1.5 rounded-lg transition-colors"
               >
-                21+ Brands
+                Leadership
               </Link>
 
               <Link
-                href="/account"
-                className={`text-xs font-medium transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border ${
-                  pathname === "/account"
-                    ? "bg-[#0b1e36] text-white border-[#0b1e36]"
-                    : "border-slate-200 text-slate-700 hover:bg-slate-50"
-                }`}
+                href="/#contact"
+                className="text-xs font-medium text-slate-600 hover:text-[#071529] hover:bg-slate-50 px-2.5 py-1.5 rounded-lg transition-colors"
               >
-                <User className="w-3.5 h-3.5 text-teal-600" />
-                <span>Account</span>
+                Contact
               </Link>
             </nav>
 
-            {/* Action Tools (Right side) */}
-            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-              {/* Direct Call Trigger */}
+            {/* Right Action Tools */}
+            <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+              {/* Phone Helpline */}
               <a
                 href={`tel:${COMPANY_DETAILS.mobile}`}
-                className="flex items-center gap-1.5 px-2 py-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors shrink-0"
-                title="Call trade helpline"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+                title="Call trade desk"
               >
-                <Phone className="w-3.5 h-3.5 text-[#0d9488]" />
-                <span className="hidden sm:inline font-mono">{COMPANY_DETAILS.mobile}</span>
+                <Phone className="w-3.5 h-3.5 text-blue-600" />
+                <span className="hidden sm:inline font-mono">{COMPANY_DETAILS.phoneDisplay}</span>
               </a>
 
-              {/* Cart Button (Shifted here to replace hamburger on mobile) */}
-              <button
-                onClick={() => setCartOpen(true)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-teal-50 hover:bg-teal-100/80 border border-teal-200/80 text-xs font-bold text-[#0b1e36] transition-colors relative active:scale-95 shrink-0"
-                aria-label="View Wholesale Cart"
+              {/* Direct WhatsApp Quote Button */}
+              <a
+                href={COMPANY_DETAILS.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs font-bold shadow-xs hover:shadow-md transition-all active:scale-95"
               >
-                <div className="relative">
-                  <ShoppingBag className="w-4 h-4 text-teal-700" />
-                  {cartCount > 0 && (
-                    <span className="absolute -top-2 -right-2.5 bg-teal-600 text-white text-[9px] font-extrabold min-w-[16px] h-4 px-1 rounded-full flex items-center justify-center shadow-xs animate-in zoom-in">
-                      {cartCount}
-                    </span>
-                  )}
-                </div>
-                <span className="text-xs font-bold text-teal-900 hidden sm:inline">Cart</span>
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">WhatsApp Order</span>
+                <span className="sm:hidden">Chat</span>
+              </a>
+
+              {/* Mobile Menu Toggle Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors border border-slate-200"
+                aria-label="Toggle navigation menu"
+              >
+                {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
               </button>
             </div>
           </div>
         </div>
-      </header>
 
-      {/* Global Shopping Cart Drawer */}
-      <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />
+        {/* Mobile Navigation Dropdown */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 px-4 py-4 space-y-3 shadow-xl animate-in slide-in-from-top duration-200">
+            <div className="grid grid-cols-2 gap-2 pb-2 border-b border-slate-100">
+              {/* Agency Mobile Card */}
+              <Link
+                href="/agency"
+                className={`p-3 rounded-xl border text-left transition-all ${
+                  isAgencyActive
+                    ? "bg-[#0b1e36] text-white border-[#0b1e36]"
+                    : "bg-blue-50/60 border-blue-200 text-slate-800"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <Stethoscope className={`w-4 h-4 ${isAgencyActive ? "text-sky-300" : "text-blue-600"}`} />
+                  <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded uppercase ${
+                    isAgencyActive ? "bg-white/20 text-white" : "bg-blue-200 text-blue-900"
+                  }`}>Agency</span>
+                </div>
+                <div className="font-extrabold text-xs">Surgical & Ethical</div>
+                <div className={`text-[10px] mt-0.5 ${isAgencyActive ? "text-slate-300" : "text-slate-500"}`}>Hospital & Doctor Supply</div>
+              </Link>
+
+              {/* Store Mobile Card */}
+              <Link
+                href="/store"
+                className={`p-3 rounded-xl border text-left transition-all ${
+                  isStoreActive
+                    ? "bg-[#0284c7] text-white border-[#0284c7]"
+                    : "bg-sky-50/60 border-sky-200 text-slate-800"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <Pill className={`w-4 h-4 ${isStoreActive ? "text-white" : "text-sky-600"}`} />
+                  <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded uppercase ${
+                    isStoreActive ? "bg-white/20 text-white" : "bg-sky-200 text-sky-900"
+                  }`}>Store</span>
+                </div>
+                <div className="font-extrabold text-xs">Generic Medicine</div>
+                <div className={`text-[10px] mt-0.5 ${isStoreActive ? "text-slate-200" : "text-slate-500"}`}>Chemist High Margin</div>
+              </Link>
+            </div>
+
+            <div className="space-y-1">
+              <Link
+                href="/"
+                className="flex items-center justify-between p-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-50"
+              >
+                <span className="flex items-center gap-2">
+                  <Home className="w-3.5 h-3.5 text-blue-600" />
+                  Home Gateway
+                </span>
+                <ArrowRight className="w-3 h-3 text-slate-400" />
+              </Link>
+
+              <Link
+                href="/#credentials"
+                className="flex items-center justify-between p-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-50"
+              >
+                <span className="flex items-center gap-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+                  Licenses & Trust (Form 20B/21B)
+                </span>
+                <ArrowRight className="w-3 h-3 text-slate-400" />
+              </Link>
+
+              <Link
+                href="/#about"
+                className="flex items-center justify-between p-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-50"
+              >
+                <span className="flex items-center gap-2">
+                  <Award className="w-3.5 h-3.5 text-blue-600" />
+                  About Proprietor Santosh Kumar
+                </span>
+                <ArrowRight className="w-3 h-3 text-slate-400" />
+              </Link>
+
+              <Link
+                href="/#contact"
+                className="flex items-center justify-between p-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-50"
+              >
+                <span className="flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5 text-blue-600" />
+                  Contact & Visiting Location
+                </span>
+                <ArrowRight className="w-3 h-3 text-slate-400" />
+              </Link>
+            </div>
+
+            <div className="pt-2 border-t border-slate-100 flex items-center gap-2">
+              <a
+                href={COMPANY_DETAILS.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>WhatsApp Order Desk</span>
+              </a>
+              <a
+                href={`tel:${COMPANY_DETAILS.mobile}`}
+                className="py-2 px-3 rounded-xl border border-slate-200 text-slate-700 text-xs font-bold flex items-center justify-center gap-1.5"
+              >
+                <Phone className="w-3.5 h-3.5 text-blue-600" />
+                <span>Call</span>
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
     </>
   );
 }

@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   ShieldCheck,
   Building2,
@@ -14,179 +15,260 @@ import {
   FileCheck2,
   Sparkles,
   Award,
-  Clock,
+  Stethoscope,
+  Pill,
+  CheckCircle2,
+  Syringe,
+  Boxes,
+  Zap,
+  TrendingUp,
+  MessageCircle,
 } from "lucide-react";
-import { COMPANY_DETAILS } from "@/lib/data";
+import { COMPANY_DETAILS, DIVISIONS } from "@/lib/data";
 
 export function HeroSection() {
+  const { agency, store } = DIVISIONS;
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-teal-50/60 via-white to-slate-50/80 pt-4 pb-10 sm:pt-8 sm:pb-16 border-b border-slate-200/80">
-      {/* Dynamic Animated Ambient Light Orbs */}
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/70 via-white to-sky-50/40 pt-6 pb-14 sm:pt-12 sm:pb-24 border-b border-blue-100">
+      {/* Dynamic Animated Ambient Light Orbs (Shades of Blue and Light Blue) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-80 sm:w-[500px] h-80 sm:h-[500px] bg-gradient-to-br from-teal-400/25 to-cyan-300/15 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute top-1/3 -left-24 w-72 sm:w-[450px] h-72 sm:h-[450px] bg-gradient-to-tr from-blue-400/20 via-indigo-300/15 to-emerald-300/20 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-amber-200/20 rounded-full blur-2xl" />
+        <div className="absolute -top-24 -right-20 w-80 sm:w-[550px] h-80 sm:h-[550px] bg-gradient-to-br from-blue-400/20 via-sky-300/15 to-cyan-200/20 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute top-1/3 -left-28 w-72 sm:w-[500px] h-72 sm:h-[500px] bg-gradient-to-tr from-sky-400/20 via-indigo-300/15 to-blue-200/20 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-cyan-100/40 rounded-full blur-2xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Copy, Highlights & CTAs (7 cols) */}
-          <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
-            {/* Headline with Radiant Gradient Accent */}
-            <div className="space-y-2">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight text-[#071529] leading-[1.12]">
-                {COMPANY_DETAILS.name}
-              </h1>
-              <p className="text-base sm:text-xl md:text-2xl font-extrabold bg-gradient-to-r from-teal-700 via-emerald-600 to-cyan-800 bg-clip-text text-transparent leading-snug">
-                Reliable medicine supply for retail pharmacies and clinics.
-              </p>
-            </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
+        {/* Top Header & Headline Block */}
+        <div className="text-center max-w-3xl mx-auto space-y-4">
+          {/* Compliance & Established Pill */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-blue-200 shadow-xs hover:border-blue-300 transition-all">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+            <span className="text-[#071529] font-bold text-xs">
+              EST. 2004 • Form 20B & 21B Licensed Wholesale Stockist
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="text-blue-700 font-semibold text-xs flex items-center gap-1">
+              <MapPin className="w-3 h-3 text-blue-600" /> Bhagalpur, Bihar
+            </span>
+          </div>
 
-            {/* Supporting Text */}
-            <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed max-w-2xl font-normal">
-              Led by proprietor <strong className="text-slate-900 font-bold">{COMPANY_DETAILS.ownerName}</strong> since 2004.
-              We supply 100% genuine generic medicines, hospital surgical items, Ayurvedic syrups, and daily healthcare products directly to local chemist shops with honest wholesale PTR rates and fast local delivery.
+          {/* Main Huge Headline */}
+          <div className="space-y-2">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black tracking-tight text-[#071529] leading-[1.08]">
+              Saurav Medical
+            </h1>
+            <p className="text-xl sm:text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-blue-900 via-blue-700 to-sky-600 bg-clip-text text-transparent leading-snug">
+              Two Specialized Divisions. One Trusted Legacy in Healthcare.
             </p>
+          </div>
 
-            {/* 3-Item Color Gradient Micro-Grid (Highlighting Value on Mobile & Desktop) */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-1">
-              <div className="bg-gradient-to-br from-emerald-50 via-white to-teal-50/50 p-2.5 sm:p-3 rounded-xl border border-emerald-200/80 shadow-2xs text-center sm:text-left">
-                <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center mx-auto sm:mx-0 mb-1 shadow-xs">
-                  <ShieldCheck className="w-4 h-4" />
+          {/* Subtitle */}
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+            Operating two authorized wholesale pillars in Bhagalpur under proprietor <strong>{COMPANY_DETAILS.ownerName}</strong>. Select your division below to explore specialized hospital surgical supplies, ethical medicines, or high-margin retail generics.
+          </p>
+        </div>
+
+        {/* The Two Master Dual Portals (Selection Cards) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+          {/* PORTAL 1: Saurav Medical Agency (Surgical & Ethical) */}
+          <div className="relative group rounded-3xl p-1 bg-gradient-to-b from-blue-600/30 via-slate-200 to-blue-200/30 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <div className="h-full bg-white rounded-[1.4rem] p-6 sm:p-8 flex flex-col justify-between space-y-6 relative overflow-hidden">
+              {/* Subtle top background accent */}
+              <div className="absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl from-blue-100/60 to-transparent rounded-bl-full pointer-events-none" />
+
+              <div className="space-y-4 relative z-10">
+                {/* Division Badge & Icon */}
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0b1e36] text-white text-[11px] font-extrabold tracking-wide uppercase shadow-xs">
+                    <Stethoscope className="w-3.5 h-3.5 text-sky-400" />
+                    Division 1
+                  </span>
+                  <Badge variant="outline" className="border-blue-200 text-blue-900 bg-blue-50 text-[10px] font-bold">
+                    Hospital & Doctors
+                  </Badge>
                 </div>
-                <p className="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">100% Genuine</p>
-                <p className="text-[10px] text-emerald-800 font-semibold hidden sm:block">Batch Tested</p>
-              </div>
 
-              <div className="bg-gradient-to-br from-cyan-50 via-white to-blue-50/50 p-2.5 sm:p-3 rounded-xl border border-cyan-200/80 shadow-2xs text-center sm:text-left">
-                <div className="w-7 h-7 rounded-lg bg-cyan-600 text-white flex items-center justify-center mx-auto sm:mx-0 mb-1 shadow-xs">
-                  <Building2 className="w-4 h-4" />
+                {/* Division Title */}
+                <div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-[#071529] tracking-tight group-hover:text-blue-900 transition-colors">
+                    {agency.name}
+                  </h2>
+                  <p className="text-xs sm:text-sm font-bold text-blue-700 mt-1">
+                    Wholesale Surgical Disposables & Ethical Medicine Supply
+                  </p>
                 </div>
-                <p className="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">21+ Depots</p>
-                <p className="text-[10px] text-cyan-800 font-semibold hidden sm:block">Direct Brands</p>
-              </div>
 
-              <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50/50 p-2.5 sm:p-3 rounded-xl border border-amber-200/80 shadow-2xs text-center sm:text-left">
-                <div className="w-7 h-7 rounded-lg bg-amber-600 text-white flex items-center justify-center mx-auto sm:mx-0 mb-1 shadow-xs">
-                  <Truck className="w-4 h-4" />
+                {/* Description */}
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  Supplying multi-specialty hospitals, nursing homes, clinics, and surgeons with genuine sterile surgical consumables, ICU injectables, and ethical medicines at direct depot rates.
+                </p>
+
+                {/* Key Bullet Highlights */}
+                <div className="space-y-2 pt-2 border-t border-slate-100">
+                  <div className="flex items-start gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                    <span><strong>Sterile Surgical Disposables:</strong> Syringes, IV sets, cannula, examination gloves, and surgical cotton.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                    <span><strong>Ethical Rx Medicines:</strong> Direct authorized supply from Cipla, Alkem, Sun Pharma, Abbott, and Biochem.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                    <span><strong>Emergency OT Supply:</strong> 24/7 on-call dispatch for urgent surgical and critical care needs.</span>
+                  </div>
                 </div>
-                <p className="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">Same-Day</p>
-                <p className="text-[10px] text-amber-800 font-semibold hidden sm:block">Fast Dispatch</p>
               </div>
-            </div>
 
-            {/* Visiting Address Bar (Glassmorphic) */}
-            <div className="p-3.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200 hover:border-teal-400 text-xs text-slate-700 flex items-start gap-3 shadow-xs transition-all">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0b1e36] to-teal-800 text-teal-300 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-                <MapPin className="w-4 h-4" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <span className="font-extrabold text-slate-900 block text-xs">
-                  Agency Trade Location
-                </span>
-                <span className="text-slate-600 text-[11px] leading-relaxed block mt-0.5">
-                  {COMPANY_DETAILS.address}
-                </span>
-              </div>
-            </div>
-
-            {/* Radiant Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
-              <Button
-                variant="primary"
-                size="lg"
-                className="group shadow-md hover:shadow-lg text-xs sm:text-sm font-black bg-gradient-to-r from-[#0b1e36] via-[#123158] to-teal-800 hover:from-teal-800 hover:to-[#0b1e36] text-white h-12 rounded-xl transition-all active:scale-[0.98] border border-teal-500/30"
-                asChild
-              >
-                <Link href="/store" className="flex items-center justify-center gap-2">
-                  <Store className="w-4 h-4 text-teal-300 group-hover:scale-110 transition-transform" />
-                  <span>Open Wholesale Store</span>
-                  <ArrowRight className="w-4 h-4 ml-0.5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-xs sm:text-sm border-2 border-emerald-600/40 hover:border-emerald-600 bg-white hover:bg-emerald-50/70 text-emerald-800 font-bold h-12 rounded-xl transition-all active:scale-[0.98] shadow-xs"
-                asChild
-              >
-                <a
-                  href={COMPANY_DETAILS.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2"
+              {/* Action Buttons for Agency */}
+              <div className="pt-4 border-t border-slate-100 space-y-2.5 relative z-10">
+                <Button
+                  asChild
+                  className="w-full bg-[#0b1e36] hover:bg-[#153a6b] text-white h-12 rounded-xl text-xs sm:text-sm font-black shadow-md hover:shadow-lg transition-all group/btn flex items-center justify-center gap-2"
                 >
-                  <Phone className="w-4 h-4 text-emerald-600" />
-                  <span>Order on WhatsApp / Call</span>
-                </a>
-              </Button>
+                  <Link href="/agency">
+                    <Stethoscope className="w-4 h-4 text-sky-400 group-hover/btn:scale-110 transition-transform" />
+                    <span>Enter Surgical & Ethical Division</span>
+                    <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+
+                <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+                  <span>Target: Hospitals, Clinics, Surgeons</span>
+                  <a
+                    href={COMPANY_DETAILS.whatsappAgencyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1 hover:underline"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Inquire on WhatsApp</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Owner Profile with Dynamic Float Card (5 cols) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm">
-              {/* Subtle Decorative Ring Around Card */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/25 via-cyan-400/20 to-emerald-500/25 rounded-3xl blur-sm opacity-60" />
+          {/* PORTAL 2: Saurav Medical Store Agency (Generic Medicine Wholesale) */}
+          <div className="relative group rounded-3xl p-1 bg-gradient-to-b from-sky-500/30 via-slate-200 to-sky-200/30 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <div className="h-full bg-white rounded-[1.4rem] p-6 sm:p-8 flex flex-col justify-between space-y-6 relative overflow-hidden">
+              {/* Subtle top background accent */}
+              <div className="absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl from-sky-100/60 to-transparent rounded-bl-full pointer-events-none" />
 
-              {/* Outer Card with Bright Natural Profile Picture */}
-              <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden border-2 border-white/90 shadow-xl group bg-slate-100">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={COMPANY_DETAILS.ownerPhotoUrl}
-                  alt={COMPANY_DETAILS.ownerName}
-                  className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-100"
-                  loading="eager"
-                />
-
-                {/* Top Badge Overlay */}
-                <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-                  <span className="bg-[#071529]/80 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full border border-teal-500/30 shadow-xs flex items-center gap-1.5">
-                    <Award className="w-3 h-3 text-teal-400" />
-                    Proprietor Profile
+              <div className="space-y-4 relative z-10">
+                {/* Division Badge & Icon */}
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0284c7] text-white text-[11px] font-extrabold tracking-wide uppercase shadow-xs">
+                    <Pill className="w-3.5 h-3.5 text-sky-200" />
+                    Division 2
                   </span>
-                  <span className="bg-gradient-to-r from-teal-600 to-emerald-600 text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded-full shadow-xs">
-                    EST. 2004
-                  </span>
+                  <Badge variant="outline" className="border-sky-200 text-sky-900 bg-sky-50 text-[10px] font-bold">
+                    Chemist High Margin
+                  </Badge>
                 </div>
 
-                {/* Light & Subtle Bottom Gradient Scrim (Leaves Face & Body Fully Bright) */}
-                <div className="absolute bottom-0 inset-x-0 h-[42%] bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent flex flex-col justify-end p-4 sm:p-5 text-white z-10">
-                  <h3 className="text-xl sm:text-2xl font-black tracking-tight leading-tight">
-                    {COMPANY_DETAILS.ownerName}
-                  </h3>
-                  <p className="text-xs font-bold text-teal-300 mt-0.5">
-                    {COMPANY_DETAILS.role}
+                {/* Division Title */}
+                <div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-[#071529] tracking-tight group-hover:text-sky-900 transition-colors">
+                    {store.name}
+                  </h2>
+                  <p className="text-xs sm:text-sm font-bold text-sky-700 mt-1">
+                    High-Margin Wholesale Generic Medicines & Chemist Schemes
                   </p>
-                  <p className="text-[11px] text-slate-200 mt-0.5">
-                    Saurav Medical Agency • Bhagalpur
-                  </p>
+                </div>
 
-                  <div className="mt-2.5 pt-2 border-t border-white/20 flex items-center justify-between text-xs">
-                    <span className="text-[11px] text-slate-200 flex items-center gap-1.5 font-medium">
-                      <FileCheck2 className="w-3.5 h-3.5 text-teal-400" />
-                      Form 20B/21B Licensed
-                    </span>
-                    <span className="text-[11px] text-amber-300 font-mono font-bold">
-                      20+ Yrs Trust
-                    </span>
+                {/* Description */}
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  Empowering 500+ retail pharmacies and medical stores across Bhagalpur and East Bihar with fast-moving generic formulations, highest profit margins, and attractive 10+1 free schemes.
+                </p>
+
+                {/* Key Bullet Highlights */}
+                <div className="space-y-2 pt-2 border-t border-slate-100">
+                  <div className="flex items-start gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
+                    <span><strong>1,500+ Generic SKUs:</strong> Fast-moving antibiotics, analgesics, pantoprazole, and cough syrups.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
+                    <span><strong>Continuous 10+1 Free Schemes:</strong> Regular festive deals and slab discounts for maximum retailer profit.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
+                    <span><strong>Same-Day Chemist Dispatch:</strong> Direct supply to local chemist counters with computerized GST invoices.</span>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Bottom Live Phone Strip */}
-              <div className="mt-3 p-3 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 flex items-center justify-between text-xs shadow-xs">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-[#0b1e36] to-teal-800 text-white flex items-center justify-center font-bold text-xs">
-                    20+
-                  </div>
-                  <span className="font-bold text-slate-800">Years in Wholesale Supply</span>
+              {/* Action Buttons for Store */}
+              <div className="pt-4 border-t border-slate-100 space-y-2.5 relative z-10">
+                <Button
+                  asChild
+                  className="w-full bg-[#0284c7] hover:bg-[#0369a1] text-white h-12 rounded-xl text-xs sm:text-sm font-black shadow-md hover:shadow-lg transition-all group/btn flex items-center justify-center gap-2"
+                >
+                  <Link href="/store">
+                    <Store className="w-4 h-4 text-white group-hover/btn:scale-110 transition-transform" />
+                    <span>Enter Generic Store Division</span>
+                    <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+
+                <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+                  <span>Target: Retail Medical Stores, Chemists</span>
+                  <a
+                    href={COMPANY_DETAILS.whatsappStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1 hover:underline"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Request Scheme Sheet</span>
+                  </a>
                 </div>
-                <span className="text-teal-700 font-bold font-mono text-[11px]">
-                  {COMPANY_DETAILS.phoneDisplay}
-                </span>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 4-Item Quick Trust Ribbon */}
+        <div className="bg-white/80 backdrop-blur-md rounded-2xl border border-blue-100 p-4 sm:p-5 shadow-xs grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
+          <div className="flex items-center gap-3 text-left">
+            <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center shrink-0 border border-blue-100">
+              <ShieldCheck className="w-5 h-5 text-blue-600" />
+            </div>
+            <div>
+              <span className="text-xs sm:text-sm font-extrabold text-[#071529] block">100% Genuine</span>
+              <span className="text-[10px] text-slate-500 font-medium">Batch-Tested Stock</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 text-left">
+            <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center shrink-0 border border-sky-100">
+              <Building2 className="w-5 h-5 text-sky-600" />
+            </div>
+            <div>
+              <span className="text-xs sm:text-sm font-extrabold text-[#071529] block">21+ Top Brands</span>
+              <span className="text-[10px] text-slate-500 font-medium">Direct Company Depots</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 text-left">
+            <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center shrink-0 border border-blue-100">
+              <Truck className="w-5 h-5 text-blue-600" />
+            </div>
+            <div>
+              <span className="text-xs sm:text-sm font-extrabold text-[#071529] block">Same-Day Supply</span>
+              <span className="text-[10px] text-slate-500 font-medium">Bhagalpur & East Bihar</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 text-left">
+            <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center shrink-0 border border-sky-100">
+              <FileCheck2 className="w-5 h-5 text-sky-600" />
+            </div>
+            <div>
+              <span className="text-xs sm:text-sm font-extrabold text-[#071529] block">GST B2B Invoices</span>
+              <span className="text-[10px] text-slate-500 font-medium">100% ITC Eligible</span>
             </div>
           </div>
         </div>
