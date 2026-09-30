@@ -1,10 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/layout/header";
-import { BottomNav } from "@/components/layout/bottom-nav";
-import { Footer } from "@/components/layout/footer";
-import { FloatingActions } from "@/components/layout/floating-actions";
+import { ClientLayoutWidgets } from "@/components/layout/client-layout-widgets";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,32 +11,21 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Saurav Medical Agency | Wholesale Pharmaceutical Distributor & Stockist, Bhagalpur",
-    template: "%s | Saurav Medical Agency",
+    default: "Saurav Medical | Healthcare Distribution Gateway, Bhagalpur",
+    template: "%s | Saurav Medical",
   },
   description:
-    "Saurav Medical Agency (Proprietor: Santosh Kumar) — Leading wholesale pharmaceutical distributor & authorized medicine stockist in Bhagalpur, Bihar. Supplying genuine Generic, Ethical, Surgical, Ayurvedic, and OTC formulations to licensed retail pharmacies at direct depot PTR rates.",
+    "Saurav Medical Gateway: Saurav Medical Agency (Generic, Surgical & OTC Wholesaler, Kotwali Chowk) and Saurav Medical Store (28 Pharma Depots & Vaccines Stockist, M.P. Dwivedi Road, Bhagalpur).",
   keywords: [
     "Saurav Medical Agency",
+    "Saurav Medical Store",
+    "Gaurav Sarawgi Bhagalpur",
     "Santosh Kumar Bhagalpur",
     "wholesale medicine distributor Bhagalpur",
     "pharma stockist Bihar",
-    "wholesale pharmaceutical distributor",
+    "vaccines distributor Bhagalpur",
     "generic medicines wholesale",
-    "surgical items bulk supply",
-    "chemist distributor Bhagalpur",
-    "Alkem Cipla Mankind wholesale stockist",
-    "Kotwali Chowk pharma agency",
   ],
-  authors: [{ name: "Saurav Medical Agency" }],
-  openGraph: {
-    title: "Saurav Medical Agency | Wholesale Pharmaceutical Distributor, Bhagalpur",
-    description:
-      "Direct wholesale distributor of Generic, Surgical, Ayurvedic & OTC Medicines for licensed retail pharmacies. Kotwali Chowk, Bhagalpur - 812002. Mob: 7070605245.",
-    type: "website",
-    locale: "en_IN",
-    siteName: "Saurav Medical Agency",
-  },
   manifest: "/manifest.json",
   icons: {
     icon: [
@@ -52,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1e36",
+  themeColor: "#071529",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -64,13 +50,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} overflow-x-hidden max-w-full`}>
-      <body className="min-h-screen flex flex-col font-sans bg-[#f8fafc] text-[#0f172a] antialiased selection:bg-[#0b1e36] selection:text-white overflow-x-hidden w-full max-w-full">
-        <Header />
-        <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
-        <Footer />
-        <FloatingActions />
-        <BottomNav />
+    <html lang="en" className={`${inter.variable} overflow-x-clip max-w-full`}>
+      <body className="min-h-screen flex flex-col font-sans bg-[#071529] text-white antialiased selection:bg-blue-600 selection:text-white overflow-x-clip w-full max-w-full">
+        {children}
+        <ClientLayoutWidgets />
       </body>
     </html>
   );

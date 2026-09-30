@@ -86,7 +86,7 @@
   }
 }
 
-/* Subtle background patterns to remove flat blank white canvas */
+/* Subtle background patterns */
 .bg-subtle-dots {
   background-image: radial-gradient(#cbd5e1 1.1px, transparent 1.1px);
   background-size: 20px 20px;
@@ -105,49 +105,141 @@
   box-shadow: 0 4px 20px -4px rgba(11, 30, 54, 0.06), 0 2px 6px -1px rgba(11, 30, 54, 0.03);
 }
 
-/* Watermark pattern for certificate preview */
-.certificate-pattern {
-  background-image: radial-gradient(rgba(11, 30, 54, 0.08) 1px, transparent 0);
-  background-size: 24px 24px;
-}
-
-@keyframes float {
+/* Pinterest style sticker animations */
+@keyframes sticker-float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-8px) rotate(1.5deg);
   }
 }
 
-@keyframes float-slow {
+@keyframes sticker-float-alt {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-7px) rotate(-1.5deg);
   }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
-    opacity: 0.6;
+    opacity: 0.65;
     transform: scale(1);
   }
   50% {
-    opacity: 0.9;
+    opacity: 0.95;
     transform: scale(1.05);
   }
 }
 
-.animate-float {
-  animation: float 4s ease-in-out infinite;
+@keyframes sticker-wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
 }
 
-.animate-float-slow {
-  animation: float-slow 7s ease-in-out infinite;
+@keyframes soft-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-sticker-bob {
+  animation: sticker-float 4.5s ease-in-out infinite;
+}
+
+.animate-sticker-bob-alt {
+  animation: sticker-float-alt 5s ease-in-out infinite;
+}
+
+.animate-sticker-wiggle {
+  animation: sticker-wiggle 6s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 5s ease-in-out infinite;
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: sticker-float 4s ease-in-out infinite;
+}
+
+/* Water-Fluid Glassmorphism & Liquid Motion */
+@keyframes water-fluid-morph {
+  0%, 100% {
+    border-radius: 9999px;
+    transform: scale(1);
+  }
+  25% {
+    border-radius: 46% 54% 50% 50% / 54% 46% 54% 46%;
+    transform: scale(1.08, 0.94);
+  }
+  50% {
+    border-radius: 53% 47% 55% 45% / 47% 53% 47% 53%;
+    transform: scale(0.96, 1.05);
+  }
+  75% {
+    border-radius: 48% 52% 47% 53% / 52% 48% 54% 46%;
+    transform: scale(1.03, 0.97);
+  }
+}
+
+@keyframes water-ripple {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.85);
+    opacity: 0;
+  }
+}
+
+@keyframes water-droplet {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.05, 0.95);
+  }
+}
+
+.animate-water-fluid {
+  animation: water-fluid-morph 3.5s ease-in-out infinite;
+}
+
+.animate-water-ripple {
+  animation: water-ripple 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.animate-water-droplet {
+  animation: water-droplet 2s ease-in-out infinite;
+}
+
+/* Hide Next.js Development Indicator Logo & Badges */
+[data-nextjs-dev-tools-button],
+[data-next-badge],
+nextjs-portal,
+#__next-build-watcher,
+div[data-nextjs-toast] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
