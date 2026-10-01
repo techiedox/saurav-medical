@@ -12,6 +12,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { STORE_DETAILS } from "@/lib/data";
+import { SauravLogo } from "@/components/brand/saurav-brand-identity";
 
 export function StoreFooter() {
   const currentYear = new Date().getFullYear();
@@ -23,14 +24,13 @@ export function StoreFooter() {
           {/* Brand Info (5 cols) */}
           <div className="lg:col-span-5 space-y-3.5">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 text-white flex items-center justify-center p-2 shadow-md shrink-0">
-                <Store className="w-6 h-6" />
-              </div>
+              <SauravLogo className="w-11 h-11 bg-white rounded-xl p-1 shadow-md shrink-0" />
               <div>
                 <span className="font-black text-white text-lg tracking-tight block leading-tight">
-                  {STORE_DETAILS.name}
+                  <span className="text-sky-400">SAURAV</span>{" "}
+                  <span className="text-emerald-400">MEDICAL STORE</span>
                 </span>
-                <span className="text-xs text-sky-400 font-semibold block mt-0.5">
+                <span className="text-xs text-slate-400 font-semibold block mt-0.5">
                   {STORE_DETAILS.tagline}
                 </span>
               </div>

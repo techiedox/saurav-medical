@@ -3,8 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Truck, Users, MapPin } from "lucide-react";
+import { SauravLogo, SauravWordmark } from "@/components/brand/saurav-brand-identity";
 import {
-  SauravLogoSvg,
   AgencySuppliesSvg,
   StorePharmacySvg,
 } from "@/components/gateway/gateway-vectors";
@@ -23,18 +23,11 @@ export default function HomePage() {
       <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col py-1 sm:py-3">
         {/* Top Header */}
         <header className="flex items-center justify-between pb-3 sm:pb-6">
-          {/* Logo & Brand Identity */}
-          <div className="flex items-center gap-2.5">
-            <SauravLogoSvg className="w-8 h-8 sm:w-9 sm:h-9 drop-shadow-xs" />
-            <div className="leading-none">
-              <span className="font-black text-[#0b2545] text-base sm:text-lg tracking-tight block">
-                SAURAV
-              </span>
-              <span className="text-[9px] font-semibold text-slate-400 tracking-[0.25em] block mt-0.5">
-                MEDICAL
-              </span>
-            </div>
-          </div>
+          {/* Logo & Wordmark Brand Identity */}
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
+            <SauravLogo className="w-9 h-9 sm:w-11 sm:h-11 transition-transform group-hover:scale-105" priority />
+            <SauravWordmark subtitle="MEDICAL" size="md" />
+          </Link>
 
           {/* Clean 4-Line Quote */}
           <div className="text-right text-[9px] font-bold text-slate-400 tracking-wider uppercase leading-tight border-l border-slate-200/90 pl-3 hidden sm:block">
@@ -80,10 +73,10 @@ export default function HomePage() {
 
             {/* Content & Action */}
             <div className="space-y-0.5 sm:space-y-1">
-              <span className="text-[9px] sm:text-[11px] font-bold text-slate-500 tracking-wider uppercase block">
+              <span className="text-[9px] sm:text-[11px] font-black text-[#003894] tracking-wider uppercase block">
                 SAURAV
               </span>
-              <h2 className="text-xs sm:text-xl font-black text-[#0b2545] tracking-tight leading-tight">
+              <h2 className="text-xs sm:text-xl font-extrabold text-[#039c04] tracking-tight leading-tight">
                 MEDICAL AGENCY
               </h2>
               <div className="text-[9px] sm:text-xs text-slate-600 pt-0.5 sm:pt-1 leading-snug space-y-0.5">
@@ -120,10 +113,10 @@ export default function HomePage() {
 
             {/* Content & Action */}
             <div className="space-y-0.5 sm:space-y-1">
-              <span className="text-[9px] sm:text-[11px] font-bold text-slate-500 tracking-wider uppercase block">
+              <span className="text-[9px] sm:text-[11px] font-black text-[#003894] tracking-wider uppercase block">
                 SAURAV
               </span>
-              <h2 className="text-xs sm:text-xl font-black text-[#0b2545] tracking-tight leading-tight">
+              <h2 className="text-xs sm:text-xl font-extrabold text-[#039c04] tracking-tight leading-tight">
                 MEDICAL STORE
               </h2>
               <div className="text-[9px] sm:text-xs text-slate-600 pt-0.5 sm:pt-1 leading-snug space-y-0.5">
@@ -177,8 +170,9 @@ export default function HomePage() {
 
         {/* FOOTER: Pushed below fold so it is viewed upon scrolling */}
         <footer className="mt-8 sm:mt-12 pt-6 sm:pt-8 pb-28 sm:pb-12 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11px] sm:text-xs text-slate-500">
-          <div>
-            © {currentYear} <strong>Saurav Medical</strong> • Bhagalpur, Bihar
+          <div className="flex items-center gap-2">
+            <SauravLogo className="w-5 h-5" />
+            <span>© {currentYear} <strong className="text-slate-800">Saurav Medical</strong> • Bhagalpur, Bihar</span>
           </div>
 
           {/* Built with ❤️ by Techiedox */}
@@ -190,7 +184,7 @@ export default function HomePage() {
               href="https://techiedox.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sky-600 hover:text-sky-800 font-bold underline underline-offset-2 transition-colors"
+              className="text-[#003894] hover:text-blue-800 font-bold underline underline-offset-2 transition-colors"
             >
               Techiedox
             </a>

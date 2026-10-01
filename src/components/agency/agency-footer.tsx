@@ -11,6 +11,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { AGENCY_DETAILS } from "@/lib/data";
+import { SauravLogo } from "@/components/brand/saurav-brand-identity";
 
 export function AgencyFooter() {
   const currentYear = new Date().getFullYear();
@@ -22,17 +23,13 @@ export function AgencyFooter() {
           {/* Brand Info (5 cols) */}
           <div className="lg:col-span-5 space-y-3.5">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white text-red-600 flex items-center justify-center p-1.5 shadow-md shrink-0">
-                <div className="w-full h-full rounded-full border-2 border-red-600 flex items-center justify-center relative">
-                  <div className="w-1.5 h-full bg-red-600 absolute" />
-                  <div className="h-1.5 w-full bg-red-600 absolute" />
-                </div>
-              </div>
+              <SauravLogo className="w-11 h-11 bg-white rounded-xl p-1 shadow-md shrink-0" />
               <div>
                 <span className="font-black text-white text-lg tracking-tight block leading-tight">
-                  {AGENCY_DETAILS.name}
+                  <span className="text-sky-400">SAURAV</span>{" "}
+                  <span className="text-emerald-400">MEDICAL AGENCY</span>
                 </span>
-                <span className="text-xs text-sky-400 font-semibold block mt-0.5">
+                <span className="text-xs text-slate-400 font-semibold block mt-0.5">
                   {AGENCY_DETAILS.tagline}
                 </span>
               </div>

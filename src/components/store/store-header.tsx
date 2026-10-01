@@ -13,6 +13,7 @@ import {
   Stethoscope,
 } from "lucide-react";
 import { STORE_DETAILS } from "@/lib/data";
+import { SauravLogo } from "@/components/brand/saurav-brand-identity";
 
 export function StoreHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -64,10 +65,8 @@ export function StoreHeader() {
       <div className="w-full bg-white/95 backdrop-blur-xl py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
           {/* Logo & Identity */}
-          <Link href="/store" className="flex items-center gap-3 min-w-0 group">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 p-2 flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform shadow-md shadow-blue-500/20">
-              <Store className="w-6 h-6" />
-            </div>
+          <Link href="/store" className="flex items-center gap-2.5 sm:gap-3 min-w-0 group">
+            <SauravLogo className="w-10 h-10 sm:w-11 sm:h-11 transition-transform group-hover:scale-105" priority />
             {/* Brand text visible on all screens */}
             <div className="min-w-0">
               <div className="flex items-center gap-1.5 sm:gap-2">
@@ -79,7 +78,7 @@ export function StoreHeader() {
                 </span>
               </div>
               <span className="text-[10px] sm:text-xs font-semibold text-blue-600 block whitespace-nowrap leading-tight mt-0.5">
-                Stockist & Vaccine Distributors
+                Stockist &amp; Vaccine Distributors
               </span>
             </div>
           </Link>

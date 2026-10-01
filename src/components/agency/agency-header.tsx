@@ -11,6 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { AGENCY_DETAILS } from "@/lib/data";
+import { SauravLogo } from "@/components/brand/saurav-brand-identity";
 
 export function AgencyHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -56,22 +57,16 @@ export function AgencyHeader() {
       {/* Main Agency Navigation Bar (Steady, never moves up) */}
       <div className="w-full bg-white/95 backdrop-blur-xl py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
-          {/* Logo & Identity with Red Cross Circle from visiting card */}
-          <Link href="/agency" className="flex items-center gap-3 min-w-0 group">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white p-1.5 flex items-center justify-center text-red-600 shrink-0 group-hover:scale-105 transition-transform shadow-md border-2 border-red-100">
-              {/* Circular Red Medical Cross */}
-              <div className="w-full h-full rounded-full border-2 border-red-600 flex items-center justify-center relative">
-                <div className="w-1.5 h-full bg-red-600 absolute" />
-                <div className="h-1.5 w-full bg-red-600 absolute" />
-              </div>
-            </div>
+          {/* Logo & Identity with Official Cross Logo */}
+          <Link href="/agency" className="flex items-center gap-2.5 sm:gap-3 min-w-0 group">
+            <SauravLogo className="w-10 h-10 sm:w-11 sm:h-11 transition-transform group-hover:scale-105" priority />
             {/* Brand text visible on all screens */}
             <div className="min-w-0">
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <span className="font-black text-[#0f172a] text-sm sm:text-lg md:text-xl tracking-tight block leading-tight whitespace-nowrap">
                   Saurav Medical Agency
                 </span>
-                <span className="hidden sm:inline-flex text-xs font-bold px-2 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-200">
+                <span className="hidden sm:inline-flex text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
                   Wholesale
                 </span>
               </div>

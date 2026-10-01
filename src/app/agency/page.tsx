@@ -34,6 +34,7 @@ import { AgencyHeader } from "@/components/agency/agency-header";
 import { AgencyFooter } from "@/components/agency/agency-footer";
 import { CertificateScanCard } from "@/components/certificates/certificate-scan-card";
 import { BrandLogo } from "@/components/brands/brand-logo";
+import { SauravLogo } from "@/components/brand/saurav-brand-identity";
 
 export default function AgencyPage() {
   const [enquiryForm, setEnquiryForm] = useState({
@@ -56,42 +57,86 @@ export default function AgencyPage() {
       {/* 1. Dedicated Agency Navigation Bar */}
       <AgencyHeader />
 
-      <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-14 space-y-16 sm:space-y-24">
-        {/* HERO SECTION (Inspired by Reference UI) */}
-        <section className="text-center max-w-4xl mx-auto space-y-6 pt-2">
-          {/* Eyebrow Ribbon */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs sm:text-sm font-medium shadow-xs">
-            <span>Genuine quality healthcare — wholesale pricing with <strong>maximum chemist margins</strong></span>
+      <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-16 sm:space-y-24">
+        {/* HERO SECTION (With High-Definition Medical Hexagonal Background) */}
+        <section className="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] bg-white border border-slate-200/90 shadow-sm sm:shadow-md">
+          {/* Background Image Layer - True edge-to-edge background */}
+          <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+            <picture>
+              <source srcSet="/hero-agency-bg.webp?v=3" type="image/webp" />
+              <img
+                src="/hero-agency-bg.jpg?v=3"
+                alt="Saurav Medical Agency Background"
+                className="w-full h-full object-cover object-[75%_center] sm:object-right transition-opacity"
+              />
+            </picture>
+            {/* Desktop & Tablet Soft Gradient: Fades from solid white behind text to transparent over the medical artwork */}
+            <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent via-45%" />
+            {/* Mobile Ambient Wash: Soft translucent backing so all text is 100% crisp without hiding the medical motifs */}
+            <div className="sm:hidden absolute inset-0 bg-white/75 backdrop-blur-[2px]" />
           </div>
 
-          {/* Main Title */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0f172a] tracking-tight leading-[1.15]">
-            Wholesaler of Generic, Surgical, <br />
-            <span className="text-[#0052ff]">Ayurvedic & OTC Medicines</span>
-          </h1>
+          {/* Hero Content */}
+          <div className="relative z-10 max-w-2xl p-6 sm:p-10 lg:p-14 space-y-5 sm:space-y-6 text-left">
+            {/* Eyebrow Ribbon - Kept strictly in one line on mobile */}
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-blue-100/75 border border-blue-200 text-blue-800 text-[11px] sm:text-xs md:text-sm font-semibold shadow-2xs whitespace-nowrap">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-600 animate-pulse shrink-0" />
+              <span>Wholesale Medicine Agency • <span className="hidden sm:inline">Kotwali Chowk, </span>Bhagalpur</span>
+            </div>
 
-          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Registered wholesale medicine agency stocking 21+ leading generic companies at Kotwali Chowk, Next to ICICI Bank (1st Floor), Bhagalpur. Offering daily chemist counter packing and lucrative 10+1 / 10+2 trade bonus deals.
-          </p>
+            {/* Main Title */}
+            <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black text-[#0f172a] tracking-tight leading-[1.12]">
+              Wholesaler of Generic, Surgical &amp;{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-600">
+                OTC Formulations
+              </span>
+            </h1>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <a
-              href={AGENCY_DETAILS.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3 px-6 rounded-2xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-blue-500/25 active:scale-95 transition-all"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>Connect on WhatsApp ({AGENCY_DETAILS.phoneDisplay})</span>
-            </a>
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
+              Serving retail pharmacies, clinics, and hospitals with 21+ leading generic medicine brands. Direct factory wholesale pricing, fast chemist counter dispatch, and high-margin <strong>10+1 &amp; 10+2 trade bonus deals</strong>.
+            </p>
 
-            <a
-              href={`tel:${AGENCY_DETAILS.mobile}`}
-              className="py-3 px-5 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm flex items-center gap-2 border border-slate-200 shadow-xs transition-all"
-            >
-              <Phone className="w-4 h-4 text-blue-600" />
-              <span>Call Counter: {AGENCY_DETAILS.phoneDisplay}</span>
-            </a>
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+              <a
+                href={AGENCY_DETAILS.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-600/25 active:scale-98 transition-all"
+              >
+                <MessageCircle className="w-4 h-4 fill-white/20" />
+                <span>WhatsApp Order / Enquiry</span>
+              </a>
+
+              <a
+                href={`tel:${AGENCY_DETAILS.mobile}`}
+                className="py-3.5 px-6 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm flex items-center justify-center gap-2 border border-slate-200/90 shadow-xs active:scale-98 transition-all"
+              >
+                <Phone className="w-4 h-4 text-blue-600" />
+                <span>Call Counter: {AGENCY_DETAILS.phoneDisplay}</span>
+              </a>
+            </div>
+
+            {/* Trust Badges / Stats Micro Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-200/80">
+              <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
+                <p className="text-lg sm:text-xl font-black text-blue-700">21+</p>
+                <p className="text-[11px] font-semibold text-slate-600">Generic Brands</p>
+              </div>
+              <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
+                <p className="text-lg sm:text-xl font-black text-emerald-600">10+1 / 10+2</p>
+                <p className="text-[11px] font-semibold text-slate-600">Free Bonus Schemes</p>
+              </div>
+              <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
+                <p className="text-lg sm:text-xl font-black text-slate-800">Same-Day</p>
+                <p className="text-[11px] font-semibold text-slate-600">Counter Packing</p>
+              </div>
+              <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
+                <p className="text-lg sm:text-xl font-black text-indigo-700">100%</p>
+                <p className="text-[11px] font-semibold text-slate-600">GST Invoicing</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -446,8 +491,8 @@ export default function AgencyPage() {
 
             {/* Inner Content - Enlarged and strictly within safe blank zone */}
             <div className="absolute top-[12%] bottom-[12%] left-[15%] sm:left-[16%] w-[48%] sm:w-[46%] flex flex-col justify-center items-start text-left space-y-1 sm:space-y-3">
-              <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 text-white flex items-center justify-center font-black text-xs sm:text-base md:text-lg shrink-0 shadow-sm">
-                SMS
+              <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-2xl bg-white p-1 sm:p-1.5 shadow-md border border-slate-200/70 text-white flex items-center justify-center shrink-0">
+                <SauravLogo className="w-full h-full" />
               </div>
               <h4 className="font-black text-xs sm:text-xl md:text-2xl text-[#0f172a] leading-tight sm:leading-snug">
                 Need Authorized Pharma Vaccines &amp; Ethical Stock?

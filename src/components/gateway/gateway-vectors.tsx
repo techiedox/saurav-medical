@@ -2,31 +2,21 @@
 
 import React from "react";
 
-// Crisp Dual-Ribbon S Logo
+import Image from "next/image";
+
+// Official Saurav Medical Cross & Leaf Logo
 export function SauravLogoSvg({ className = "w-8 h-8" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <defs>
-        <linearGradient id="sTopGrad" x1="15" y1="15" x2="85" y2="50" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#0284c7" />
-          <stop offset="1" stopColor="#0369a1" />
-        </linearGradient>
-        <linearGradient id="sBottomGrad" x1="15" y1="50" x2="85" y2="85" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#38bdf8" />
-          <stop offset="1" stopColor="#0284c7" />
-        </linearGradient>
-      </defs>
-      {/* Upper S ribbon fold */}
-      <path
-        d="M30 24C30 18.5 34.5 14 40 14H75C80.5 14 85 18.5 85 24C85 29.5 80.5 34 75 34H48L72 56C76 59.5 78 64.5 78 70C78 75.5 73.5 80 68 80H25C19.5 80 15 75.5 15 70C15 64.5 19.5 60 25 60H52L28 38C24 34.5 22 29.5 22 24"
-        fill="url(#sTopGrad)"
+    <div className={`relative shrink-0 flex items-center justify-center ${className}`}>
+      <Image
+        src="/logo.png"
+        alt="Saurav Medical"
+        width={64}
+        height={64}
+        priority
+        className="w-full h-full object-contain select-none"
       />
-      <path
-        d="M22 62C22 56.5 26.5 52 32 52H65C70.5 52 75 56.5 75 62C75 67.5 70.5 72 65 72H32C26.5 72 22 67.5 22 62Z"
-        fill="url(#sBottomGrad)"
-        opacity="0.85"
-      />
-    </svg>
+    </div>
   );
 }
 

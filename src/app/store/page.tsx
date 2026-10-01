@@ -34,6 +34,7 @@ import { StoreHeader } from "@/components/store/store-header";
 import { StoreFooter } from "@/components/store/store-footer";
 import { CertificateScanCard } from "@/components/certificates/certificate-scan-card";
 import { BrandLogo } from "@/components/brands/brand-logo";
+import { SauravLogo } from "@/components/brand/saurav-brand-identity";
 
 export default function StorePage() {
   const [copiedBankField, setCopiedBankField] = useState<string | null>(null);
@@ -63,42 +64,89 @@ export default function StorePage() {
       {/* 1. Dedicated Store Navigation Bar */}
       <StoreHeader />
 
-      <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-14 space-y-16 sm:space-y-24">
-        {/* HERO SECTION (Inspired by Reference UI) */}
-        <section className="text-center max-w-4xl mx-auto space-y-6 pt-2">
-          {/* Eyebrow Ribbon */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs sm:text-sm font-medium shadow-xs">
-            <span>Medicine <strong>starts</strong> with science — but true healing <strong>begins</strong> with trust</span>
+      <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-16 sm:space-y-24">
+        {/* HERO SECTION (With High-Definition 3D Isometric Medical Tiles Background) */}
+        <section className="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] bg-[#ecf7f6] border border-cyan-200/60 shadow-sm sm:shadow-md">
+          {/* Background Image Layer - True edge-to-edge background */}
+          <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+            <picture>
+              <source srcSet="/hero-store-bg.webp?v=3" type="image/webp" />
+              <img
+                src="/hero-store-bg.jpg?v=3"
+                alt="Saurav Medical Store Background"
+                className="w-full h-full object-cover object-[75%_center] sm:object-right transition-opacity"
+              />
+            </picture>
+            {/* Desktop & Tablet Soft Gradient: Fades from #ecf7f6 behind text to transparent over the 3D tiles */}
+            <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#ecf7f6] via-[#ecf7f6]/90 to-transparent via-45%" />
+            {/* Mobile Ambient Wash: Soft translucent backing so all text is 100% crisp without hiding the medical motifs */}
+            <div className="sm:hidden absolute inset-0 bg-[#ecf7f6]/80 backdrop-blur-[2px]" />
           </div>
 
-          {/* Main Title */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0f172a] tracking-tight leading-[1.15]">
-            Pharmaceuticals Stockist & <br />
-            <span className="text-[#0052ff]">Vaccines Distributors</span>
-          </h1>
+          {/* Hero Content */}
+          <div className="relative z-10 max-w-2xl p-6 sm:p-10 lg:p-14 space-y-5 sm:space-y-6 text-left">
+            {/* Eyebrow Ribbon - Kept strictly in one line on mobile */}
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-cyan-100/80 border border-cyan-200 text-cyan-900 text-[11px] sm:text-xs md:text-sm font-semibold shadow-2xs whitespace-nowrap">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-600 animate-pulse shrink-0" />
+              <span>Est. 2004 • <span className="hidden sm:inline">Authorized </span>Pharma Stockist &amp; Vaccine Distributor</span>
+            </div>
 
-          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Authorized depot stockist for 28 pharmaceutical leaders and unbroken 2°C – 8°C cold chain vaccine distributor serving hospitals, nursing homes, and retail pharmacies across Bihar.
-          </p>
+            {/* Main Title */}
+            <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black text-[#0f172a] tracking-tight leading-[1.12]">
+              Pharmaceuticals Stockist &amp;{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0052ff] via-blue-600 to-cyan-600">
+                Vaccines Distributors
+              </span>
+            </h1>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <a
-              href={STORE_DETAILS.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3 px-6 rounded-2xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-blue-500/25 active:scale-95 transition-all"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>Connect on WhatsApp ({STORE_DETAILS.phoneDisplay})</span>
-            </a>
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
+              Direct authorized depot stockist for 28 pharmaceutical leaders and unbroken 2°C – 8°C cold chain vaccine distributor. Serving leading hospitals, nursing homes, and retail chemists across Bhagalpur and Bihar.
+            </p>
 
-            <a
-              href={`tel:${STORE_DETAILS.mobile}`}
-              className="py-3 px-5 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm flex items-center gap-2 border border-slate-200 shadow-xs transition-all"
-            >
-              <Phone className="w-4 h-4 text-blue-600" />
-              <span>Call: {STORE_DETAILS.phoneDisplay}</span>
-            </a>
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+              <a
+                href={STORE_DETAILS.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3.5 px-6 rounded-2xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-blue-500/25 active:scale-98 transition-all"
+              >
+                <MessageCircle className="w-4 h-4 fill-white/20" />
+                <span>Connect on WhatsApp</span>
+              </a>
+
+              <a
+                href={`tel:${STORE_DETAILS.mobile}`}
+                className="py-3.5 px-6 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm flex items-center justify-center gap-2 border border-slate-200/90 shadow-xs active:scale-98 transition-all"
+              >
+                <Phone className="w-4 h-4 text-blue-600" />
+                <span>Call: {STORE_DETAILS.phoneDisplay}</span>
+              </a>
+            </div>
+
+            {/* Trust Badges / Stats Micro Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-cyan-200/60">
+              <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
+                <p className="text-lg sm:text-xl font-black text-blue-700">28</p>
+                <p className="text-[11px] font-semibold text-slate-600">Pharma Depots</p>
+              </div>
+              <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
+                <div className="flex items-center gap-1">
+                  <p className="text-lg sm:text-xl font-black text-cyan-600">2°C – 8°C</p>
+                  <ThermometerSnowflake className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                </div>
+                <p className="text-[11px] font-semibold text-slate-600">Cold Chain Secured</p>
+              </div>
+              <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
+                <p className="text-lg sm:text-xl font-black text-slate-800">20+ Yrs</p>
+                <p className="text-[11px] font-semibold text-slate-600">Serving Since 2004</p>
+              </div>
+              <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
+                <p className="text-lg sm:text-xl font-black text-emerald-600">Verified</p>
+                <p className="text-[11px] font-semibold text-slate-600">DL BGP-161 &amp; 161A</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -516,11 +564,8 @@ export default function StorePage() {
 
             {/* Inner Content - Enlarged and strictly within safe blank zone */}
             <div className="absolute top-[12%] bottom-[12%] left-[15%] sm:left-[16%] w-[48%] sm:w-[46%] flex flex-col justify-center items-start text-left space-y-1 sm:space-y-3">
-              <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-red-600 flex items-center justify-center text-red-600 shrink-0 shadow-sm">
-                <div className="w-full h-full rounded-full flex items-center justify-center relative">
-                  <div className="w-1.5 h-full bg-red-600 absolute" />
-                  <div className="h-1.5 w-full bg-red-600 absolute" />
-                </div>
+              <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-2xl bg-white p-1 sm:p-1.5 shadow-md border border-slate-200/70 text-white flex items-center justify-center shrink-0">
+                <SauravLogo className="w-full h-full" />
               </div>
               <h4 className="font-black text-xs sm:text-xl md:text-2xl text-[#0f172a] leading-tight sm:leading-snug">
                 Looking for Generic, Surgical &amp; OTC Medicines?
