@@ -32,15 +32,19 @@ export function AgencyHeader() {
           <div className="flex items-center gap-3 text-xs">
             <div className="flex items-center gap-1.5 text-sky-100">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span className="font-semibold text-white">Wholesaler of Generic, Surgical, Ayurvedic and OTC Medicines</span>
+              <span className="font-semibold text-white">Wholesale DL: Form 20B &amp; 21B Licensed • 35+ Years Established</span>
               <span className="text-sky-500">•</span>
-              <span className="text-slate-300">Kotwali Chowk, Next to ICICI Bank (1st Floor)</span>
+              <span className="text-slate-300">M.P. Dwivedi Road, Bhagalpur</span>
+            </div>
+            <span className="text-sky-500/40">|</span>
+            <div className="flex items-center gap-1 text-sky-300">
+              <span>2°C – 8°C Cold Chain Vaccine Protocol</span>
             </div>
           </div>
 
           <div className="flex items-center gap-4 text-xs">
             <span className="text-slate-300">
-              Proprietor: <strong className="text-white font-semibold">Santosh Kumar</strong>
+              Proprietor: <strong className="text-white font-semibold">Gaurav Sarawgi</strong>
             </span>
             <span className="text-sky-500/40">|</span>
             <a
@@ -66,12 +70,12 @@ export function AgencyHeader() {
                 <span className="font-black text-[#0f172a] text-sm sm:text-lg md:text-xl tracking-tight block leading-tight whitespace-nowrap">
                   Saurav Medical Agency
                 </span>
-                <span className="hidden sm:inline-flex text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
-                  Wholesale
+                <span className="hidden sm:inline-flex text-xs font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
+                  Est. 35+ Yrs
                 </span>
               </div>
               <span className="text-[10px] sm:text-xs font-semibold text-slate-500 block whitespace-nowrap leading-tight mt-0.5">
-                Kotwali Chowk, Next to ICICI Bank
+                Ethical Medicines, Cold Chain &amp; Hospital Supplies
               </span>
             </div>
           </Link>
@@ -97,28 +101,28 @@ export function AgencyHeader() {
               href="#supplies"
               className="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition-colors"
             >
-              Generic Supplies
+              Ethical Supplies
             </a>
 
             <a
               href="#brands"
               className="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition-colors"
             >
-              21 Brand Lines
+              28 Pharma Depots
             </a>
 
             <a
-              href="#schemes"
+              href="#cold-chain"
               className="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition-colors"
             >
-              Chemist Schemes
+              Cold Chain &amp; Vaccines
             </a>
 
             <a
-              href="#certificates"
+              href="#bank"
               className="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition-colors"
             >
-              Licenses
+              Bank Details
             </a>
 
             {/* Quick Switch to Store */}
@@ -126,7 +130,7 @@ export function AgencyHeader() {
               href="/store"
               className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all flex items-center gap-1.5 border border-slate-200"
             >
-              <Store className="w-3.5 h-3.5 text-blue-600" />
+              <Store className="w-3.5 h-3.5 text-emerald-600" />
               <span>Saurav Medical Store</span>
               <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             </Link>
@@ -142,7 +146,7 @@ export function AgencyHeader() {
               aria-label="WhatsApp Contact"
             >
               <MessageCircle className="w-4 h-4" />
-              <span className="hidden sm:inline">WhatsApp Santosh ji</span>
+              <span className="hidden sm:inline">WhatsApp Gaurav ji</span>
             </a>
           </div>
         </div>

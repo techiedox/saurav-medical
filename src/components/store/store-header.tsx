@@ -34,20 +34,20 @@ export function StoreHeader() {
           <div className="flex items-center gap-3 text-xs">
             <div className="flex items-center gap-1.5 text-blue-100">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span className="font-semibold text-white">Form 20B & 21B Licensed Wholesale Stockist</span>
+              <span className="font-semibold text-white">Wholesale DL: Form 20B & 21B Licensed</span>
               <span className="text-blue-500">•</span>
-              <span className="text-slate-300">M.P. Dwivedi Road, Bhagalpur</span>
+              <span className="text-slate-300">Kotwali Chowk, Next to ICICI Bank (1st Floor)</span>
             </div>
             <span className="text-blue-500/40">|</span>
             <div className="flex items-center gap-1 text-sky-300">
-              <ThermometerSnowflake className="w-3.5 h-3.5" />
-              <span>Certified 2°C – 8°C Cold Chain Protocol</span>
+              <Store className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Generic &amp; Surgical Medicines • 10+1 &amp; 10+2 Schemes</span>
             </div>
           </div>
 
           <div className="flex items-center gap-4 text-xs">
             <span className="text-slate-300">
-              Proprietor: <strong className="text-white font-semibold">Gaurav Sarawgi</strong>
+              Founder: <strong className="text-white font-semibold">Santosh Kumar</strong>
             </span>
             <span className="text-blue-500/40">|</span>
             <a
@@ -73,12 +73,12 @@ export function StoreHeader() {
                 <span className="font-black text-[#0f172a] text-sm sm:text-lg md:text-xl tracking-tight block leading-tight whitespace-nowrap">
                   Saurav Medical Store
                 </span>
-                <span className="hidden sm:inline-flex text-xs font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
-                  Est. 2004
+                <span className="hidden sm:inline-flex text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  3+ Years
                 </span>
               </div>
               <span className="text-[10px] sm:text-xs font-semibold text-blue-600 block whitespace-nowrap leading-tight mt-0.5">
-                Stockist &amp; Vaccine Distributors
+                Generic &amp; Surgical Medicine Wholesale
               </span>
             </div>
           </Link>
@@ -111,21 +111,21 @@ export function StoreHeader() {
               href="#brands"
               className="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition-colors"
             >
-              28 Authorized Brands
+              Top Brands
             </a>
 
             <a
-              href="#certificates"
+              href="#schemes"
               className="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition-colors"
             >
-              Licenses
+              Chemist Schemes
             </a>
 
             <a
-              href="#bank"
+              href="#sourcing"
               className="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition-colors"
             >
-              Bank Details
+              On-Demand Sourcing
             </a>
 
             {/* Quick Switch to Agency */}
@@ -133,7 +133,7 @@ export function StoreHeader() {
               href="/agency"
               className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all flex items-center gap-1.5 border border-slate-200"
             >
-              <Stethoscope className="w-3.5 h-3.5 text-red-600" />
+              <Stethoscope className="w-3.5 h-3.5 text-blue-600" />
               <span>Saurav Medical Agency</span>
               <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             </Link>
@@ -149,7 +149,7 @@ export function StoreHeader() {
               aria-label="WhatsApp Contact"
             >
               <MessageCircle className="w-4 h-4" />
-              <span className="hidden sm:inline">WhatsApp Gaurav ji</span>
+              <span className="hidden sm:inline">WhatsApp Santosh ji</span>
             </a>
           </div>
         </div>

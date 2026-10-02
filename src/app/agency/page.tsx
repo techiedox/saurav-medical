@@ -3,26 +3,20 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import {
-  Stethoscope,
   ShieldCheck,
   Building2,
   Phone,
   MessageCircle,
   CheckCircle2,
-  Percent,
-  TrendingUp,
-  Clock,
+  ThermometerSnowflake,
+  Copy,
+  Check,
   ChevronRight,
-  Sparkles,
   MapPin,
+  Clock,
   Mail,
-  PackageCheck,
-  Boxes,
-  Store,
   UserCheck,
   Send,
-  Tag,
-  Zap,
 } from "lucide-react";
 import {
   AGENCY_DETAILS,
@@ -37,19 +31,26 @@ import { BrandLogo } from "@/components/brands/brand-logo";
 import { SauravLogo } from "@/components/brand/saurav-brand-identity";
 
 export default function AgencyPage() {
+  const [copiedBankField, setCopiedBankField] = useState<string | null>(null);
   const [enquiryForm, setEnquiryForm] = useState({
     name: "",
     phone: "",
-    shopName: "",
+    facilityName: "",
     requirement: "",
   });
+
+  const handleCopy = (text: string, fieldName: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedBankField(fieldName);
+    setTimeout(() => setCopiedBankField(null), 2000);
+  };
 
   const handleEnquirySubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const msg = encodeURIComponent(
-      `Hello Santosh ji (Saurav Medical Agency), I am a chemist and want to enquire about generic stock and 10+1 schemes.\nName: ${enquiryForm.name}\nPhone: ${enquiryForm.phone}\nShop/Facility: ${enquiryForm.shopName}\nRequirement: ${enquiryForm.requirement}`
+      `Hello Gaurav ji (Saurav Medical Agency), I want to enquire about stock availability.\nName: ${enquiryForm.name}\nPhone: ${enquiryForm.phone}\nHospital/Chemist: ${enquiryForm.facilityName}\nRequirement: ${enquiryForm.requirement}`
     );
-    window.open(`https://wa.me/917070605245?text=${msg}`, "_blank");
+    window.open(`https://wa.me/918789028637?text=${msg}`, "_blank");
   };
 
   return (
@@ -58,43 +59,43 @@ export default function AgencyPage() {
       <AgencyHeader />
 
       <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-16 sm:space-y-24">
-        {/* HERO SECTION (With High-Definition Medical Hexagonal Background) */}
-        <section className="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] bg-white border border-slate-200/90 shadow-sm sm:shadow-md">
+        {/* HERO SECTION (With High-Definition 3D Isometric Medical Tiles Background) */}
+        <section className="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] bg-[#ecf7f6] border border-cyan-200/60 shadow-sm sm:shadow-md">
           {/* Background Image Layer - True edge-to-edge background */}
           <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
             <picture>
-              <source srcSet="/hero-agency-bg.webp?v=3" type="image/webp" />
+              <source srcSet="/hero-store-bg.webp?v=4" type="image/webp" />
               <img
-                src="/hero-agency-bg.jpg?v=3"
+                src="/hero-store-bg.jpg?v=4"
                 alt="Saurav Medical Agency Background"
                 className="w-full h-full object-cover object-[75%_center] sm:object-right transition-opacity"
               />
             </picture>
-            {/* Desktop & Tablet Soft Gradient: Fades from solid white behind text to transparent over the medical artwork */}
-            <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent via-45%" />
-            {/* Mobile Ambient Wash: Soft translucent backing so all text is 100% crisp without hiding the medical motifs */}
-            <div className="sm:hidden absolute inset-0 bg-white/75 backdrop-blur-[2px]" />
+            {/* Desktop & Tablet Soft Gradient: Fades from #ecf7f6 behind text to transparent over the 3D tiles */}
+            <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#ecf7f6] via-[#ecf7f6]/90 to-transparent via-45%" />
+            {/* Mobile Ambient Wash */}
+            <div className="sm:hidden absolute inset-0 bg-[#ecf7f6]/80 backdrop-blur-[2px]" />
           </div>
 
           {/* Hero Content */}
           <div className="relative z-10 max-w-2xl p-6 sm:p-10 lg:p-14 space-y-5 sm:space-y-6 text-left">
-            {/* Eyebrow Ribbon - Kept strictly in one line on mobile */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-blue-100/75 border border-blue-200 text-blue-800 text-[11px] sm:text-xs md:text-sm font-semibold shadow-2xs whitespace-nowrap">
+            {/* Eyebrow Ribbon - Single line on mobile */}
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-cyan-100/80 border border-cyan-200 text-cyan-900 text-[11px] sm:text-xs md:text-sm font-semibold shadow-2xs whitespace-nowrap">
               <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-600 animate-pulse shrink-0" />
-              <span>Wholesale Medicine Agency • <span className="hidden sm:inline">Kotwali Chowk, </span>Bhagalpur</span>
+              <span>35+ Years of Trust • <span className="hidden sm:inline">Authorized </span>Ethical Pharma &amp; Vaccine Stockist</span>
             </div>
 
             {/* Main Title */}
             <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black text-[#0f172a] tracking-tight leading-[1.12]">
-              Wholesaler of Generic, Surgical &amp;{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-600">
-                OTC Formulations
+              Pharmaceuticals Stockist &amp;{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0052ff] via-blue-600 to-cyan-600">
+                Vaccines Distributors
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
-              Serving retail pharmacies, clinics, and hospitals with 21+ leading generic medicine brands. Direct factory wholesale pricing, fast chemist counter dispatch, and high-margin <strong>10+1 &amp; 10+2 trade bonus deals</strong>.
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
+              Authorized depot stockist for 28 pharmaceutical leaders and unbroken 2°C – 8°C cold chain vaccine distributor. Serving leading hospitals, nursing homes, and retail medical shops across Bihar with 35+ years of trusted service from M.P. Dwivedi Road, Bhagalpur.
             </p>
 
             {/* Action Buttons */}
@@ -103,10 +104,10 @@ export default function AgencyPage() {
                 href={AGENCY_DETAILS.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-600/25 active:scale-98 transition-all"
+                className="py-3.5 px-6 rounded-2xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-blue-500/25 active:scale-98 transition-all"
               >
                 <MessageCircle className="w-4 h-4 fill-white/20" />
-                <span>WhatsApp Order / Enquiry</span>
+                <span>Connect on WhatsApp</span>
               </a>
 
               <a
@@ -114,119 +115,122 @@ export default function AgencyPage() {
                 className="py-3.5 px-6 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm flex items-center justify-center gap-2 border border-slate-200/90 shadow-xs active:scale-98 transition-all"
               >
                 <Phone className="w-4 h-4 text-blue-600" />
-                <span>Call Counter: {AGENCY_DETAILS.phoneDisplay}</span>
+                <span>Call: {AGENCY_DETAILS.phoneDisplay}</span>
               </a>
             </div>
 
             {/* Trust Badges / Stats Micro Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-200/80">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-cyan-200/60">
               <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
-                <p className="text-lg sm:text-xl font-black text-blue-700">21+</p>
-                <p className="text-[11px] font-semibold text-slate-600">Generic Brands</p>
+                <p className="text-lg sm:text-xl font-black text-blue-700">35+ Yrs</p>
+                <p className="text-[11px] font-semibold text-slate-600">Healthcare Trust</p>
               </div>
               <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
-                <p className="text-lg sm:text-xl font-black text-emerald-600">10+1 / 10+2</p>
-                <p className="text-[11px] font-semibold text-slate-600">Free Bonus Schemes</p>
+                <p className="text-lg sm:text-xl font-black text-cyan-700">28</p>
+                <p className="text-[11px] font-semibold text-slate-600">Pharma Depots</p>
               </div>
               <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
-                <p className="text-lg sm:text-xl font-black text-slate-800">Same-Day</p>
-                <p className="text-[11px] font-semibold text-slate-600">Counter Packing</p>
+                <div className="flex items-center gap-1">
+                  <p className="text-lg sm:text-xl font-black text-cyan-600">2°C – 8°C</p>
+                  <ThermometerSnowflake className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                </div>
+                <p className="text-[11px] font-semibold text-slate-600">Cold Chain Secured</p>
               </div>
               <div className="bg-white/90 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70 shadow-2xs">
-                <p className="text-lg sm:text-xl font-black text-indigo-700">100%</p>
-                <p className="text-[11px] font-semibold text-slate-600">GST Invoicing</p>
+                <p className="text-lg sm:text-xl font-black text-emerald-600">Swift</p>
+                <p className="text-[11px] font-semibold text-slate-600">Depot Sourcing</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* PROPRIETOR / TEAM CARD (Inspired by Reference UI Doctor Cards) */}
+        {/* PROPRIETOR / TEAM CARD */}
         <section id="about" className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200/80 pb-4">
             <div>
-              <span className="text-xs font-bold text-blue-600 tracking-wider block mb-1">
-                Agency Leadership
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-1">
+                Executive Leadership
               </span>
               <h2 className="text-2xl sm:text-4xl font-black text-[#0f172a]">
                 Meet the person <span className="text-[#0052ff]">who leads</span>
               </h2>
             </div>
             <span className="text-xs text-slate-500 font-medium">
-              Registered wholesale counter at Kotwali Chowk, Bhagalpur
+              Over 35+ years of authorized pharma distribution in Bhagalpur
             </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-md">
-            {/* Left Photo Frame Card (Reference Style) */}
+            {/* Left Photo Frame Card */}
             <div className="lg:col-span-5 flex flex-col items-center">
-              <div className="relative w-full max-w-xs aspect-[3/4] rounded-3xl overflow-hidden bg-gradient-to-b from-red-50 via-slate-100 to-blue-50 border-2 border-red-100 shadow-xl flex flex-col justify-between p-5 text-center">
+              <div className="relative w-full max-w-xs aspect-[3/4] rounded-3xl overflow-hidden bg-gradient-to-b from-blue-50 via-slate-100 to-blue-100 border-2 border-blue-100 shadow-xl flex flex-col justify-between p-5 text-center">
                 {/* Top Badge */}
                 <div className="flex items-center justify-between w-full">
-                  <span className="px-2.5 py-0.5 rounded-full bg-red-600 text-white text-xs font-bold">
+                  <span className="px-2.5 py-0.5 rounded-full bg-blue-600 text-white text-[10px] font-bold">
                     Proprietor &amp; Head
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold">
-                    Wholesale Counter
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
+                    35+ Yrs Trust
                   </span>
                 </div>
 
                 {/* Center Silhouette / Graphic Portrait */}
                 <div className="my-auto space-y-3">
-                  <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-red-500 to-blue-600 p-1 shadow-lg shadow-red-500/20 flex items-center justify-center">
+                  <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-blue-600 to-sky-400 p-1 shadow-lg shadow-blue-500/20 flex items-center justify-center">
                     <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                      <UserCheck className="w-12 h-12 text-red-600" />
+                      <UserCheck className="w-12 h-12 text-[#0052ff]" />
                     </div>
                   </div>
                   <div>
                     <h3 className="text-lg font-black text-[#0f172a]">
                       {AGENCY_DETAILS.ownerName}
                     </h3>
-                    <p className="text-xs text-red-600 font-bold">
+                    <p className="text-xs text-blue-600 font-bold">
                       {AGENCY_DETAILS.ownerRole}
                     </p>
-                    <span className="text-xs text-slate-500 block mt-0.5">
+                    <span className="text-[11px] text-slate-500 block mt-0.5">
                       {AGENCY_DETAILS.name}
                     </span>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-200/80 text-xs text-slate-500 font-mono">
-                  Kotwali Chowk (Next to ICICI Bank 1st Floor)
+                <div className="pt-2 border-t border-slate-200/80 text-[10px] text-slate-500 font-mono">
+                  M.P. Dwivedi Road, Bhagalpur
                 </div>
               </div>
             </div>
 
             {/* Right Leadership Details */}
             <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-red-700 text-xs font-bold tracking-wider">
-                <ShieldCheck className="w-3.5 h-3.5 text-red-600" />
-                <span>Wholesale Medicine Distributor</span>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold tracking-wider">
+                <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+                <span>Authorized Pharmaceutical Representative</span>
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-black text-[#0f172a] leading-tight">
-                Proprietor &amp; Wholesale Operations Head
+                Proprietor &amp; Head of Distribution
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Directing wholesale generic, surgical, and ayurvedic distribution from Kotwali Chowk, Next to ICICI Bank (1st Floor) Bhagalpur. Committed to maximizing retail pharmacy profits with direct factory wholesale prices, attractive 10+1 free bonus box deals, and same-day counter dispatch.
+                Directing authorized ethical pharmaceutical and cold-chain vaccine operations from M.P. Dwivedi Road, Bhagalpur. Dedicated to supplying healthcare facilities, nursing homes, and retail pharmacies with 100% genuine depot pharmaceuticals, life-saving critical care injectables, and unbroken cold-chain vaccine logistics.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 border-t border-slate-100">
                 <div className="flex items-start gap-2 text-xs text-slate-700">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>Wholesale distribution for 21 generic leaders</span>
+                  <span>Authorized stockist for 28 pharma leaders</span>
                 </div>
                 <div className="flex items-start gap-2 text-xs text-slate-700">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>Specialized 10+1 & 10+2 free box bonus schemes</span>
+                  <span>Certified 2°C – 8°C cold chain vaccine storage</span>
                 </div>
                 <div className="flex items-start gap-2 text-xs text-slate-700">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>Complete surgical disposables & ayurvedic OTC</span>
+                  <span>Hospital ICU critical care emergency delivery</span>
                 </div>
                 <div className="flex items-start gap-2 text-xs text-slate-700">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>Computerized GST invoices with full ITC tax credit</span>
+                  <span>Direct depot sourcing for hard-to-find doctor prescriptions</span>
                 </div>
               </div>
 
@@ -235,10 +239,10 @@ export default function AgencyPage() {
                   href={AGENCY_DETAILS.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2.5 px-5 rounded-2xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all"
+                  className="py-2.5 px-5 rounded-xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>WhatsApp Santosh Kumar</span>
+                  <span>WhatsApp Gaurav Sarawgi</span>
                 </a>
                 <a
                   href={`tel:${AGENCY_DETAILS.mobile}`}
@@ -252,28 +256,31 @@ export default function AgencyPage() {
           </div>
         </section>
 
-        {/* HIGH CONTRAST BLUE BANNER (Reference UI "Take a look inside") */}
+        {/* HIGH CONTRAST BLUE BANNER */}
         <section className="relative rounded-3xl bg-[#0052ff] text-white p-8 sm:p-14 overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-900/40 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl space-y-4">
             <span className="text-xs font-bold uppercase tracking-widest text-sky-200 block">
-              Wholesale Counter Advantages
+              Facility &amp; Cold Storage
             </span>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              Maximum Chemist Profit Margins & 10+1 Schemes
+              Certified Cold Chain &amp; Depot Operations
             </h2>
             <p className="text-xs sm:text-sm text-blue-100 leading-relaxed">
-              We stock ready bulk cartons of fast-moving molecules from Alkem, Aristo, Cipla, and Smart Lab. Our monthly bonus schemes allow retail medical stores to earn up to 70% trade margins with full computerized GST documentation.
+              Equipped with pharmaceutical-grade refrigeration units, round-the-clock digital temperature dataloggers, and backup power to guarantee that every vaccine vial retains full biological potency from depot to clinic.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <span className="px-3.5 py-1.5 rounded-full bg-white/15 text-white text-xs font-bold border border-white/20">
-                10+1 & 10+2 Free Boxes
+                Temperature 2°C – 8°C Monitored
               </span>
               <span className="px-3.5 py-1.5 rounded-full bg-white/15 text-white text-xs font-bold border border-white/20">
-                Same-Day Counter Packing
+                Insulated Cold Box Dispatch
+              </span>
+              <span className="px-3.5 py-1.5 rounded-full bg-white/15 text-white text-xs font-bold border border-white/20">
+                Direct Depot Verification
               </span>
             </div>
           </div>
@@ -283,24 +290,24 @@ export default function AgencyPage() {
         <section id="supplies" className="space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">
-              Wholesale Supply Range
+              Distribution Portfolio
             </span>
             <h2 className="text-2xl sm:text-4xl font-black text-[#0f172a]">
               What Saurav Medical Agency Supplies
             </h2>
             <p className="text-xs sm:text-sm text-slate-600">
-              Bulk wholesale supplies of generic medicines, surgical items, ayurvedic tonics, and chemist schemes.
+              Direct authorized distribution of ethical therapeutics, critical vaccines, infant nutrition, and hospital supplies.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {AGENCY_SUPPLIES.map((supply) => (
               <div
                 key={supply.id}
                 className="rounded-3xl bg-white p-6 border border-slate-200/90 shadow-xs hover:border-blue-400 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="space-y-3">
-                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200 uppercase">
+                  <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200 uppercase">
                     {supply.badge}
                   </span>
 
@@ -324,12 +331,13 @@ export default function AgencyPage() {
 
                 <div className="pt-4 mt-3 border-t border-slate-100">
                   <a
-                    href={`https://wa.me/917070605245?text=Hello%20Santosh%20ji,%20I%20want%20to%20enquire%20about%20schemes%20for%20"${encodeURIComponent(supply.title)}"`}
+                    href={`https://wa.me/918789028637?text=Hello%20Gaurav%20ji,%20I%20want%20to%20enquire%20about%20supply%20for%20"${encodeURIComponent(supply.title)}"`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-bold text-blue-600 hover:text-blue-800 inline-flex items-center gap-1 group"
+                    className="w-full py-2.5 px-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors group"
                   >
-                    <span>Enquire Chemist Scheme</span>
+                    <MessageCircle className="w-3.5 h-3.5 text-blue-600" />
+                    <span>Enquire Availability</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </a>
                 </div>
@@ -338,19 +346,19 @@ export default function AgencyPage() {
           </div>
         </section>
 
-        {/* 21 GENERIC BRANDS (Clean Logo Grid - No Filter, Real Logos) */}
+        {/* 28 AUTHORIZED BRANDS */}
         <section id="brands" className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200/80 pb-4">
             <div>
               <span className="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-1">
-                Generic Company Lines
+                Depot Stockist Partners
               </span>
               <h2 className="text-2xl sm:text-4xl font-black text-[#0f172a]">
-                21 Generic Brands Stocked
+                28 Authorized Brand Partners
               </h2>
             </div>
             <span className="text-xs text-slate-500 font-medium">
-              Popular companies from visiting card back available at our Kotwali Chowk counter
+              Direct company depot representation across Bihar
             </span>
           </div>
 
@@ -374,7 +382,7 @@ export default function AgencyPage() {
               Statutory Verification
             </span>
             <h2 className="text-2xl sm:text-4xl font-black text-[#0f172a]">
-              Licenses & Document Scans
+              Licenses &amp; Document Scans
             </h2>
             <p className="text-xs sm:text-sm text-slate-600">
               Government issued wholesale drug licenses and tax compliance documents for Saurav Medical Agency. Click any card to preview.
@@ -388,18 +396,79 @@ export default function AgencyPage() {
           </div>
         </section>
 
-        {/* ENQUIRY CARD (Inspired by Reference UI "Are you ready to make an appointment?") */}
-        <section id="schemes" className="rounded-3xl bg-white p-6 sm:p-10 border border-slate-200/90 shadow-md">
+        {/* ICICI BANK DETAILS */}
+        <section id="bank" className="rounded-3xl bg-[#0b132b] text-white p-6 sm:p-10 border border-slate-800 shadow-xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-sky-400 block mb-1">
+                Official Banking Settlement
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-white">
+                Bank Details (Saurav Medical Agency)
+              </h3>
+              <p className="text-xs text-slate-400">
+                Official settlement desk for institutional wholesale orders &amp; NEFT/RTGS payments.
+              </p>
+            </div>
+
+            <div className="px-3 py-1 rounded-xl bg-white/10 text-xs font-mono font-semibold text-sky-300 w-fit">
+              ICICI Bank Verified
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
+              <span className="text-[11px] text-slate-400 block">Account Name</span>
+              <span className="text-sm font-bold text-white block">{AGENCY_DETAILS.accountHolder}</span>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1.5">
+              <span className="text-xs text-slate-400 block font-medium">Bank Name</span>
+              <span className="text-sm font-bold text-white block">{AGENCY_DETAILS.bankName}</span>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1.5 flex items-center justify-between">
+              <div>
+                <span className="text-xs text-slate-400 block font-medium">Account Number</span>
+                <span className="text-sm font-mono font-bold text-sky-300 block">{AGENCY_DETAILS.accountNo}</span>
+              </div>
+              <button
+                onClick={() => handleCopy(AGENCY_DETAILS.accountNo, "acc")}
+                className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-300 transition-colors"
+                title="Copy Account Number"
+              >
+                {copiedBankField === "acc" ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+              </button>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1.5 flex items-center justify-between">
+              <div>
+                <span className="text-xs text-slate-400 block font-medium">IFSC Code</span>
+                <span className="text-sm font-mono font-bold text-sky-300 block">{AGENCY_DETAILS.ifscCode}</span>
+              </div>
+              <button
+                onClick={() => handleCopy(AGENCY_DETAILS.ifscCode, "ifsc")}
+                className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-300 transition-colors"
+                title="Copy IFSC Code"
+              >
+                {copiedBankField === "ifsc" ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* ENQUIRY CARD */}
+        <section id="enquiry" className="rounded-3xl bg-white p-6 sm:p-10 border border-slate-200/90 shadow-md">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-3">
               <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">
-                Chemist Wholesale Desk
+                Procurement Desk
               </span>
               <h3 className="text-2xl sm:text-4xl font-black text-[#0f172a] leading-tight">
-                Get Today&apos;s Chemist Scheme Sheet
+                Are you ready to procure or enquire stock?
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Connect directly with Santosh Kumar on WhatsApp to receive the latest wholesale generic price list, bulk carton discounts, and 10+1 free bonus scheme breakdown.
+                Send your medicine or vaccine procurement requirement directly to Gaurav Sarawgi on WhatsApp for real-time depot batch availability and wholesale PTR quotation.
               </p>
 
               <div className="pt-2 space-y-2 text-xs text-slate-700">
@@ -409,11 +478,11 @@ export default function AgencyPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span><strong>Direct Mobile:</strong> {AGENCY_DETAILS.phoneDisplay}</span>
+                  <span><strong>Direct Contact:</strong> {AGENCY_DETAILS.phoneDisplay} | Office: {AGENCY_DETAILS.officePhone}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span><strong>Counter Hours:</strong> {AGENCY_DETAILS.hours}</span>
+                  <span><strong>Trade Hours:</strong> {AGENCY_DETAILS.hours}</span>
                 </div>
               </div>
             </div>
@@ -422,11 +491,11 @@ export default function AgencyPage() {
             <div className="lg:col-span-6">
               <form onSubmit={handleEnquirySubmit} className="bg-slate-50 p-6 rounded-2xl border border-slate-200/90 space-y-3">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-700">Chemist / Owner Name</label>
+                  <label className="text-xs font-bold text-slate-700">Your Name</label>
                   <input
                     type="text"
                     required
-                    placeholder="Your Full Name"
+                    placeholder="Doctor / Chemist / Purchaser Name"
                     value={enquiryForm.name}
                     onChange={(e) => setEnquiryForm({ ...enquiryForm, name: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -446,21 +515,21 @@ export default function AgencyPage() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-700">Medical Store / Pharmacy Name</label>
+                  <label className="text-xs font-bold text-slate-700">Hospital / Chemist Facility</label>
                   <input
                     type="text"
-                    placeholder="Name of your retail chemist shop"
-                    value={enquiryForm.shopName}
-                    onChange={(e) => setEnquiryForm({ ...enquiryForm, shopName: e.target.value })}
+                    placeholder="Name of your pharmacy, hospital or clinic"
+                    value={enquiryForm.facilityName}
+                    onChange={(e) => setEnquiryForm({ ...enquiryForm, facilityName: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-700">Molecules / Requirement</label>
+                  <label className="text-xs font-bold text-slate-700">Requirement / Medicines</label>
                   <textarea
                     rows={2}
-                    placeholder="E.g., Pantoprazole DSR, Cefixime, Cough Syrups, etc."
+                    placeholder="E.g., Rabies vaccine, Lactodex, Augmentin, etc."
                     value={enquiryForm.requirement}
                     onChange={(e) => setEnquiryForm({ ...enquiryForm, requirement: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -472,7 +541,7 @@ export default function AgencyPage() {
                   className="w-full py-3 px-4 rounded-xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-blue-500/20 transition-all active:scale-98"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Enquire Generic Schemes on WhatsApp</span>
+                  <span>Send Enquiry to WhatsApp</span>
                 </button>
               </form>
             </div>
@@ -482,23 +551,23 @@ export default function AgencyPage() {
         {/* QUICK DIVISION SWITCHER BANNER IN ENLARGED STETHOSCOPE FRAME */}
         <section className="relative my-8 sm:my-14 -mx-4 w-[calc(100%+2rem)] sm:mx-auto sm:w-full max-w-4xl lg:max-w-5xl px-0 sm:px-4">
           <div className="relative w-full overflow-hidden select-none">
-            {/* The Stethoscope Frame Image (Scaled Up, Borderless) */}
+            {/* The Stethoscope Frame Image */}
             <img
               src="/stethoscope-frame.jpg"
               alt="Stethoscope Frame"
               className="w-full h-auto object-contain block select-none pointer-events-none"
             />
 
-            {/* Inner Content - Enlarged and strictly within safe blank zone */}
+            {/* Inner Content */}
             <div className="absolute top-[12%] bottom-[12%] left-[15%] sm:left-[16%] w-[48%] sm:w-[46%] flex flex-col justify-center items-start text-left space-y-1 sm:space-y-3">
               <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-2xl bg-white p-1 sm:p-1.5 shadow-md border border-slate-200/70 text-white flex items-center justify-center shrink-0">
                 <SauravLogo className="w-full h-full" />
               </div>
               <h4 className="font-black text-xs sm:text-xl md:text-2xl text-[#0f172a] leading-tight sm:leading-snug">
-                Need Authorized Pharma Vaccines &amp; Ethical Stock?
+                Looking for Generic &amp; Surgical Medicines?
               </h4>
               <p className="text-[10px] sm:text-sm md:text-base text-slate-600 leading-tight sm:leading-relaxed line-clamp-2 sm:line-clamp-3">
-                Visit <strong>Saurav Medical Store</strong> at M.P. Dwivedi Road for GSK, Serum Institute, Abbott, Alkem, and 2°C–8°C cold chain vaccines.
+                Visit <strong>Saurav Medical Store</strong> at Kotwali Chowk (Next to ICICI Bank 1st Floor) for 21 generic lines &amp; 10+1 schemes.
               </p>
               <div className="pt-0.5 sm:pt-1">
                 <Link

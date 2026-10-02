@@ -36,15 +36,15 @@ export function AgencyFooter() {
             </div>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-md">
-              Wholesale medicine agency supplying fast-moving generic formulations, surgical consumables, ayurvedic tonics, and attractive 10+1 / 10+2 trade bonus deals for retail medical stores.
+              Direct authorized depot stockist for 28 pharmaceutical leaders and certified 2°C – 8°C cold chain vaccine distributor serving healthcare facilities, nursing homes, and retail pharmacies across Bihar. If any required specialty is not in ready stock, we arrange and supply it as quickly as possible.
             </p>
 
             <div className="flex flex-wrap gap-2 text-xs">
               <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-sky-300 font-medium">
                 Wholesale DL: Form 20B &amp; 21B
               </span>
-              <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-red-400 font-medium">
-                Kotwali Chowk (Next to ICICI Bank)
+              <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-sky-400 font-medium">
+                ICICI Bank Verified Account
               </span>
             </div>
           </div>
@@ -57,27 +57,27 @@ export function AgencyFooter() {
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <a href="#supplies" className="hover:text-white transition-colors">
-                  • Fast-Moving Generic Tablets &amp; Capsules
+                  • Vaccines &amp; Biologicals (2°C – 8°C Cold Chain)
                 </a>
               </li>
               <li>
                 <a href="#supplies" className="hover:text-white transition-colors">
-                  • Surgical Disposables &amp; Infusion Sets
+                  • Ethical Prescription Medicines
                 </a>
               </li>
               <li>
                 <a href="#supplies" className="hover:text-white transition-colors">
-                  • Ayurvedic &amp; OTC Formulations
+                  • Hospital &amp; Critical Care Injectables
                 </a>
               </li>
               <li>
-                <a href="#schemes" className="hover:text-white transition-colors">
-                  • 10+1 &amp; 10+2 Chemist Bonus Deals
+                <a href="#supplies" className="hover:text-white transition-colors">
+                  • Lactodex &amp; Pediatric Nutrition
                 </a>
               </li>
               <li>
                 <a href="#brands" className="hover:text-white transition-colors">
-                  • 21 Generic Company Lines
+                  • 28 Authorized Pharma Brand Depots
                 </a>
               </li>
             </ul>
@@ -86,23 +86,34 @@ export function AgencyFooter() {
           {/* Contact Details (4 cols) */}
           <div className="lg:col-span-4 space-y-3">
             <h4 className="text-white font-bold text-sm tracking-wide">
-              Agency Contact &amp; Counter
+              Agency Contact &amp; Visiting Desk
             </h4>
             <div className="space-y-2.5 text-xs text-slate-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                <span>
+                <div>
                   <strong>Address:</strong> {AGENCY_DETAILS.address}
-                </span>
+                  <div className="mt-1">
+                    <a
+                      href={AGENCY_DETAILS.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sky-400 hover:text-sky-300 underline underline-offset-2 font-medium"
+                    >
+                      View on Google Maps →
+                    </a>
+                  </div>
+                </div>
               </div>
 
               <div className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
                 <span>
-                  <strong>Santosh Kumar:</strong>{" "}
+                  <strong>Gaurav Sarawgi:</strong>{" "}
                   <a href={`tel:${AGENCY_DETAILS.mobile}`} className="text-sky-300 font-mono font-bold hover:underline">
                     {AGENCY_DETAILS.phoneDisplay}
-                  </a>
+                  </a>{" "}
+                  | Office: {AGENCY_DETAILS.officePhone}
                 </span>
               </div>
 
@@ -129,7 +140,7 @@ export function AgencyFooter() {
                 className="w-full py-2.5 px-3 rounded-xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Santosh Kumar ({AGENCY_DETAILS.phoneDisplay})</span>
+                <span>WhatsApp Gaurav Sarawgi ({AGENCY_DETAILS.phoneDisplay})</span>
               </a>
             </div>
           </div>

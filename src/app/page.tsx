@@ -57,12 +57,12 @@ export default function HomePage() {
 
         {/* TWO 3D CLAYMORPHIC ENTERPRISE CARDS (IN ONE ROW ON MOBILE) */}
         <section className="grid grid-cols-2 gap-3 sm:gap-6 py-2.5 sm:py-5">
-          {/* Card 1: SAURAV MEDICAL AGENCY (Wholesale) */}
+          {/* Card 1: SAURAV MEDICAL AGENCY (Ethical Wholesale & Depots) */}
           <div className="rounded-2xl sm:rounded-[32px] p-3 sm:p-6 bg-gradient-to-b from-[#e3f0fc] to-[#d6e9fa] border border-blue-200/70 shadow-[0_12px_28px_rgba(59,130,246,0.12),inset_0_1px_1px_rgba(255,255,255,0.85)] flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1 group">
             {/* Top Badge */}
             <div>
               <span className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/70 backdrop-blur-md text-[8px] sm:text-[10px] font-bold text-sky-700 tracking-wider uppercase border border-white shadow-xs">
-                WHOLESALE
+                35+ YRS • ETHICAL
               </span>
             </div>
 
@@ -80,9 +80,9 @@ export default function HomePage() {
                 MEDICAL AGENCY
               </h2>
               <div className="text-[9px] sm:text-xs text-slate-600 pt-0.5 sm:pt-1 leading-snug space-y-0.5">
-                <p className="line-clamp-1 sm:line-clamp-none font-medium">Ethical Medicines</p>
-                <p className="hidden sm:block">Surgical Products • B2B Supply</p>
-                <p className="sm:hidden text-sky-700 font-semibold text-[8px]">B2B Wholesale</p>
+                <p className="line-clamp-1 sm:line-clamp-none font-medium">Ethical &amp; Doctor Prescriptions</p>
+                <p className="hidden sm:block">28 Pharma Depots • Cold Chain Vaccines</p>
+                <p className="sm:hidden text-sky-700 font-semibold text-[8px]">Ethical &amp; Cold Chain</p>
               </div>
 
               <Link
@@ -97,12 +97,12 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Card 2: SAURAV MEDICAL STORE (Retail) */}
+          {/* Card 2: SAURAV MEDICAL STORE (Generic & Surgical Wholesale) */}
           <div className="rounded-2xl sm:rounded-[32px] p-3 sm:p-6 bg-gradient-to-b from-[#f0f9ff] to-[#e0f2fe] border border-sky-200/70 shadow-[0_12px_28px_rgba(14,165,233,0.12),inset_0_1px_1px_rgba(255,255,255,0.95)] flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1 group">
             {/* Top Badge */}
             <div>
-              <span className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/80 backdrop-blur-md text-[8px] sm:text-[10px] font-bold text-sky-700 tracking-wider uppercase border border-white shadow-xs">
-                RETAIL
+              <span className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/80 backdrop-blur-md text-[8px] sm:text-[10px] font-bold text-emerald-700 tracking-wider uppercase border border-white shadow-xs">
+                3+ YRS • GENERIC
               </span>
             </div>
 
@@ -120,9 +120,9 @@ export default function HomePage() {
                 MEDICAL STORE
               </h2>
               <div className="text-[9px] sm:text-xs text-slate-600 pt-0.5 sm:pt-1 leading-snug space-y-0.5">
-                <p className="line-clamp-1 sm:line-clamp-none font-medium">Generic Medicines</p>
-                <p className="hidden sm:block">Healthcare Products • Retail</p>
-                <p className="sm:hidden text-sky-700 font-semibold text-[8px]">Retail Chemist</p>
+                <p className="line-clamp-1 sm:line-clamp-none font-medium">Generic &amp; Surgical Medicines</p>
+                <p className="hidden sm:block">Top Brands • 10+1 Deals • Fast Sourcing</p>
+                <p className="sm:hidden text-emerald-700 font-semibold text-[8px]">Generic &amp; Surgical</p>
               </div>
 
               <Link
