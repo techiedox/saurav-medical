@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ShieldCheck,
   Building2,
@@ -17,6 +18,7 @@ import {
   Mail,
   UserCheck,
   Send,
+  Star,
 } from "lucide-react";
 import {
   AGENCY_DETAILS,
@@ -101,13 +103,13 @@ export default function AgencyPage() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
               <a
-                href={AGENCY_DETAILS.whatsappUrl}
+                href={AGENCY_DETAILS.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3.5 px-6 rounded-2xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-blue-500/25 active:scale-98 transition-all"
+                className="py-3.5 px-6 rounded-2xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-400/25 active:scale-98 transition-all"
               >
-                <MessageCircle className="w-4 h-4 fill-white/20" />
-                <span>Connect on WhatsApp</span>
+                <Star className="w-4 h-4 fill-slate-950 text-slate-950 shrink-0" />
+                <span>★ 4.9 • Review on Google Maps</span>
               </a>
 
               <a
@@ -161,41 +163,40 @@ export default function AgencyPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-md">
-            {/* Left Photo Frame Card */}
-            <div className="lg:col-span-5 flex flex-col items-center">
-              <div className="relative w-full max-w-xs aspect-[3/4] rounded-3xl overflow-hidden bg-gradient-to-b from-blue-50 via-slate-100 to-blue-100 border-2 border-blue-100 shadow-xl flex flex-col justify-between p-5 text-center">
-                {/* Top Badge */}
-                <div className="flex items-center justify-between w-full">
-                  <span className="px-2.5 py-0.5 rounded-full bg-blue-600 text-white text-[10px] font-bold">
-                    Proprietor &amp; Head
+            {/* Left Photo Full Card Cover */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 group bg-slate-900">
+                {/* Full Div Cover Image */}
+                <Image
+                  src={AGENCY_DETAILS.ownerImage || "/agency-owner-dp.jpg"}
+                  alt={`${AGENCY_DETAILS.ownerName} - Proprietor`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 380px"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+
+                {/* Top Badges */}
+                <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10 pointer-events-none">
+                  <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-blue-800 border border-blue-100 text-xs font-black shadow-md tracking-wide">
+                    Proprietor
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
+                  <span className="px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white border border-white/20 text-xs font-bold shadow-md">
                     35+ Yrs Trust
                   </span>
                 </div>
 
-                {/* Center Silhouette / Graphic Portrait */}
-                <div className="my-auto space-y-3">
-                  <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-blue-600 to-sky-400 p-1 shadow-lg shadow-blue-500/20 flex items-center justify-center">
-                    <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                      <UserCheck className="w-12 h-12 text-[#0052ff]" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-black text-[#0f172a]">
-                      {AGENCY_DETAILS.ownerName}
-                    </h3>
-                    <p className="text-xs text-blue-600 font-bold">
-                      {AGENCY_DETAILS.ownerRole}
-                    </p>
-                    <span className="text-[11px] text-slate-500 block mt-0.5">
-                      {AGENCY_DETAILS.name}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="pt-2 border-t border-slate-200/80 text-[10px] text-slate-500 font-mono">
-                  M.P. Dwivedi Road, Bhagalpur
+                {/* Bottom Overlay with Name & Proprietor Tag (No location) */}
+                <div className="absolute inset-x-0 bottom-0 pt-28 pb-5 px-6 bg-gradient-to-t from-slate-950 via-slate-950/75 to-transparent z-10">
+                  <span className="text-sky-400 text-[11px] font-black tracking-widest uppercase block mb-1">
+                    Proprietor
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+                    {AGENCY_DETAILS.ownerName}
+                  </h3>
+                  <p className="text-xs text-slate-300 font-medium mt-1">
+                    {AGENCY_DETAILS.name}
+                  </p>
                 </div>
               </div>
             </div>
@@ -208,7 +209,7 @@ export default function AgencyPage() {
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-black text-[#0f172a] leading-tight">
-                Proprietor &amp; Head of Distribution
+                Proprietor
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -389,9 +390,9 @@ export default function AgencyPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {AGENCY_DOCUMENTS.map((doc) => (
-              <CertificateScanCard key={doc.id} document={doc} accentColor="emerald" />
+              <CertificateScanCard key={doc.id} document={doc} accentColor="blue" />
             ))}
           </div>
         </section>
