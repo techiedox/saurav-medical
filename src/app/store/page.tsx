@@ -98,13 +98,13 @@ export default function StorePage() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
               <a
-                href={STORE_DETAILS.mapUrl}
+                href={STORE_DETAILS.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3.5 px-6 rounded-2xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-400/25 active:scale-98 transition-all"
+                className="py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-600/25 active:scale-98 transition-all"
               >
-                <Star className="w-4 h-4 fill-slate-950 text-slate-950 shrink-0" />
-                <span>★ 4.9 • Review on Google Maps</span>
+                <MessageCircle className="w-4 h-4 fill-white/20" />
+                <span>WhatsApp Order / Enquiry</span>
               </a>
 
               <a

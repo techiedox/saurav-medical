@@ -103,13 +103,13 @@ export default function AgencyPage() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
               <a
-                href={AGENCY_DETAILS.mapUrl}
+                href={AGENCY_DETAILS.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3.5 px-6 rounded-2xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-400/25 active:scale-98 transition-all"
+                className="py-3.5 px-6 rounded-2xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-blue-500/25 active:scale-98 transition-all"
               >
-                <Star className="w-4 h-4 fill-slate-950 text-slate-950 shrink-0" />
-                <span>★ 4.9 • Review on Google Maps</span>
+                <MessageCircle className="w-4 h-4 fill-white/20" />
+                <span>Connect on WhatsApp</span>
               </a>
 
               <a

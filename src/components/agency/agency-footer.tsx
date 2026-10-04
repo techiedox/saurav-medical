@@ -9,6 +9,7 @@ import {
   MapPin,
   Clock,
   MessageCircle,
+  Star,
 } from "lucide-react";
 import { AGENCY_DETAILS } from "@/lib/data";
 import { SauravLogo } from "@/components/brand/saurav-brand-identity";
@@ -134,13 +135,13 @@ export function AgencyFooter() {
 
             <div className="pt-2">
               <a
-                href={AGENCY_DETAILS.whatsappUrl}
+                href={AGENCY_DETAILS.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 px-3 rounded-xl bg-[#0052ff] hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
+                className="w-full py-2.5 px-3 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Gaurav Sarawgi ({AGENCY_DETAILS.phoneDisplay})</span>
+                <Star className="w-4 h-4 fill-slate-950 text-slate-950" />
+                <span>★ 4.9 • Rate Us / Google Reviews</span>
               </a>
             </div>
           </div>
