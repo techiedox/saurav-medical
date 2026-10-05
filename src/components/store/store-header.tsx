@@ -63,18 +63,19 @@ export function StoreHeader() {
 
       {/* Main Navigation Bar */}
       <div className="w-full bg-white/95 backdrop-blur-xl py-2.5 sm:py-3 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 lg:gap-6">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-6">
           {/* Logo & Identity */}
-          <Link href="/store" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
-            <SauravLogo className="w-10 h-10 sm:w-11 sm:h-11 transition-transform group-hover:scale-105 shrink-0" priority />
-            <div className="shrink-0">
+          <Link href="/store" className="flex items-center gap-2 sm:gap-3 min-w-0 group">
+            <SauravLogo className="w-9 h-9 sm:w-11 sm:h-11 transition-transform group-hover:scale-105 shrink-0" priority />
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="font-black text-slate-900 text-sm sm:text-base lg:text-lg tracking-tight whitespace-nowrap">
+                <span className="font-black text-slate-900 text-xs xs:text-sm sm:text-base lg:text-lg tracking-tight truncate">
                   Saurav Medical Store
                 </span>
               </div>
-              <span className="text-[10px] sm:text-xs font-semibold text-emerald-600 block whitespace-nowrap leading-tight mt-0.5">
-                Generic &amp; Surgical Medicine Wholesale
+              <span className="text-[10px] sm:text-xs font-semibold text-emerald-600 block leading-tight mt-0.5 truncate">
+                <span className="sm:hidden">Generic &amp; Surgical</span>
+                <span className="hidden sm:inline">Generic &amp; Surgical Medicine Wholesale</span>
               </span>
             </div>
           </Link>
@@ -141,11 +142,11 @@ export function StoreHeader() {
             {/* Capsule Contact CTA */}
             <a
               href="#enquiry"
-              className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/25 border border-emerald-400/40 active:scale-95 transition-all whitespace-nowrap"
-              aria-label="Contact Form"
+              className="px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] sm:text-xs font-black flex items-center justify-center gap-1 shadow-md shadow-emerald-600/25 border border-emerald-400/40 active:scale-95 transition-all shrink-0"
+              aria-label="Contact / Enquiry Form"
             >
               <Phone className="hidden sm:block w-3.5 h-3.5 shrink-0" />
-              <span className="tracking-wide">Contact</span>
+              <span>Contact</span>
             </a>
           </div>
         </div>

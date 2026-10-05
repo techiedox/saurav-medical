@@ -19,6 +19,7 @@ import {
   UserCheck,
   Send,
   Star,
+  Eye,
 } from "lucide-react";
 import {
   AGENCY_DETAILS,
@@ -34,6 +35,10 @@ import { SauravLogo } from "@/components/brand/saurav-brand-identity";
 
 export default function AgencyPage() {
   const [copiedBankField, setCopiedBankField] = useState<string | null>(null);
+  const [revealedBankFields, setRevealedBankFields] = useState<{ acc: boolean; ifsc: boolean }>({
+    acc: false,
+    ifsc: false,
+  });
   const [enquiryForm, setEnquiryForm] = useState({
     name: "",
     phone: "",
@@ -41,10 +46,17 @@ export default function AgencyPage() {
     requirement: "",
   });
 
+  const handleReveal = (field: "acc" | "ifsc") => {
+    setRevealedBankFields((prev) => ({ ...prev, [field]: true }));
+    setTimeout(() => {
+      setRevealedBankFields((prev) => ({ ...prev, [field]: false }));
+    }, 15000);
+  };
+
   const handleCopy = (text: string, fieldName: string) => {
     navigator.clipboard.writeText(text);
     setCopiedBankField(fieldName);
-    setTimeout(() => setCopiedBankField(null), 2000);
+    setTimeout(() => setCopiedBankField(null), 2500);
   };
 
   const handleEnquirySubmit = (e: React.FormEvent) => {
@@ -429,31 +441,77 @@ export default function AgencyPage() {
             </div>
 
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1.5 flex items-center justify-between">
-              <div>
+              <div className="min-w-0 pr-2">
                 <span className="text-xs text-slate-400 block font-medium">Account Number</span>
-                <span className="text-sm font-mono font-bold text-sky-300 block">{AGENCY_DETAILS.accountNo}</span>
+                <span className="text-sm font-mono font-bold text-sky-300 block tracking-wider truncate">
+                  {revealedBankFields.acc ? AGENCY_DETAILS.accountNo : "•••• •••• ••••"}
+                </span>
               </div>
-              <button
-                onClick={() => handleCopy(AGENCY_DETAILS.accountNo, "acc")}
-                className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-300 transition-colors"
-                title="Copy Account Number"
-              >
-                {copiedBankField === "acc" ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-              </button>
+              {!revealedBankFields.acc ? (
+                <button
+                  onClick={() => handleReveal("acc")}
+                  className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-sky-300 hover:text-white transition-colors flex items-center gap-1 text-xs font-semibold shrink-0"
+                  title="Click to view Account Number"
+                >
+                  <Eye className="w-4 h-4" />
+                  <span className="text-[10px]">View</span>
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleCopy(AGENCY_DETAILS.accountNo, "acc")}
+                  className="p-2 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 hover:text-white transition-colors flex items-center gap-1 text-xs font-semibold shrink-0"
+                  title="Copy Account Number"
+                >
+                  {copiedBankField === "acc" ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-400" />
+                      <span className="text-[10px] text-emerald-400 font-bold">Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4" />
+                      <span className="text-[10px]">Copy</span>
+                    </>
+                  )}
+                </button>
+              )}
             </div>
 
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1.5 flex items-center justify-between">
-              <div>
+              <div className="min-w-0 pr-2">
                 <span className="text-xs text-slate-400 block font-medium">IFSC Code</span>
-                <span className="text-sm font-mono font-bold text-sky-300 block">{AGENCY_DETAILS.ifscCode}</span>
+                <span className="text-sm font-mono font-bold text-sky-300 block tracking-wider truncate">
+                  {revealedBankFields.ifsc ? AGENCY_DETAILS.ifscCode : "•••••••••••"}
+                </span>
               </div>
-              <button
-                onClick={() => handleCopy(AGENCY_DETAILS.ifscCode, "ifsc")}
-                className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-300 transition-colors"
-                title="Copy IFSC Code"
-              >
-                {copiedBankField === "ifsc" ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-              </button>
+              {!revealedBankFields.ifsc ? (
+                <button
+                  onClick={() => handleReveal("ifsc")}
+                  className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-sky-300 hover:text-white transition-colors flex items-center gap-1 text-xs font-semibold shrink-0"
+                  title="Click to view IFSC Code"
+                >
+                  <Eye className="w-4 h-4" />
+                  <span className="text-[10px]">View</span>
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleCopy(AGENCY_DETAILS.ifscCode, "ifsc")}
+                  className="p-2 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 hover:text-white transition-colors flex items-center gap-1 text-xs font-semibold shrink-0"
+                  title="Copy IFSC Code"
+                >
+                  {copiedBankField === "ifsc" ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-400" />
+                      <span className="text-[10px] text-emerald-400 font-bold">Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4" />
+                      <span className="text-[10px]">Copy</span>
+                    </>
+                  )}
+                </button>
+              )}
             </div>
           </div>
         </section>
