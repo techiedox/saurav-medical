@@ -76,10 +76,13 @@ export default function StorePage() {
 
           {/* Hero Content */}
           <div className="relative z-10 max-w-2xl p-6 sm:p-10 lg:p-14 space-y-5 sm:space-y-6 text-left">
-            {/* Eyebrow Ribbon - Single line on mobile */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-blue-100/80 border border-blue-200 text-blue-900 text-[11px] sm:text-xs md:text-sm font-semibold shadow-2xs whitespace-nowrap">
+            {/* Eyebrow Ribbon / Capsule Badge */}
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-blue-100/90 border border-blue-200 text-blue-900 text-[10.5px] sm:text-xs md:text-sm font-semibold shadow-2xs max-w-full">
               <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-600 animate-pulse shrink-0" />
-              <span>3+ Years of Service • <span className="hidden sm:inline">Wholesale </span>Generic &amp; Surgical Store</span>
+              <span className="truncate sm:whitespace-normal">
+                <span className="sm:hidden">3+ Yrs Trust • Generic &amp; Surgical Store</span>
+                <span className="hidden sm:inline">3+ Years of Service • Wholesale Generic &amp; Surgical Store</span>
+              </span>
             </div>
 
             {/* Main Title */}

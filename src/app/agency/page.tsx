@@ -93,10 +93,13 @@ export default function AgencyPage() {
 
           {/* Hero Content */}
           <div className="relative z-10 max-w-2xl p-6 sm:p-10 lg:p-14 space-y-5 sm:space-y-6 text-left">
-            {/* Eyebrow Ribbon - Single line on mobile */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-cyan-100/80 border border-cyan-200 text-cyan-900 text-[11px] sm:text-xs md:text-sm font-semibold shadow-2xs whitespace-nowrap">
+            {/* Eyebrow Ribbon / Capsule Badge */}
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-cyan-100/90 border border-cyan-200 text-cyan-900 text-[10.5px] sm:text-xs md:text-sm font-semibold shadow-2xs max-w-full">
               <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-600 animate-pulse shrink-0" />
-              <span>35+ Years of Trust • <span className="hidden sm:inline">Authorized </span>Ethical Pharma &amp; Vaccine Stockist</span>
+              <span className="truncate sm:whitespace-normal">
+                <span className="sm:hidden">35+ Yrs Trust • Ethical &amp; Vaccine Stockist</span>
+                <span className="hidden sm:inline">35+ Years of Trust • Authorized Ethical Pharma &amp; Vaccine Stockist</span>
+              </span>
             </div>
 
             {/* Main Title */}

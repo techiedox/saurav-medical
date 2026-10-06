@@ -63,7 +63,7 @@ export function AgencyHeader() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-6">
           {/* Logo & Identity */}
           <Link href="/agency" className="flex items-center gap-2 sm:gap-3 min-w-0 group">
-            <SauravLogo className="w-9 h-9 sm:w-11 sm:h-11 transition-transform group-hover:scale-105 shrink-0" priority />
+            <SauravLogo className="w-10 h-10 sm:w-11 sm:h-11 transition-transform group-hover:scale-105 shrink-0" priority />
             <div className="min-w-0">
               <div className="flex items-center gap-2">
                 <span className="font-black text-slate-900 text-xs xs:text-sm sm:text-base lg:text-lg tracking-tight truncate">
