@@ -42,15 +42,15 @@ export function SauravWordmark({
 }: SauravWordmarkProps) {
   const sizeStyles = {
     sm: {
-      title: "text-sm sm:text-base tracking-tight",
-      sub: "text-[9px] sm:text-[10px] tracking-[0.2em]",
+      title: "text-base sm:text-lg tracking-tight",
+      sub: "text-[10px] sm:text-[11px] tracking-[0.2em]",
     },
     md: {
-      title: "text-base sm:text-xl md:text-2xl tracking-tight",
-      sub: "text-[10px] sm:text-xs md:text-sm tracking-[0.22em]",
+      title: "text-lg sm:text-2xl md:text-3xl tracking-tight",
+      sub: "text-[11px] sm:text-xs md:text-sm tracking-[0.22em]",
     },
     lg: {
-      title: "text-xl sm:text-2xl md:text-3xl tracking-tight",
+      title: "text-2xl sm:text-3xl md:text-4xl tracking-tight",
       sub: "text-xs sm:text-sm md:text-base tracking-[0.24em]",
     },
   }[size];

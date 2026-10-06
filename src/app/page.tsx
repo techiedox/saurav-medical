@@ -24,8 +24,8 @@ export default function HomePage() {
         {/* Top Header */}
         <header className="flex items-center justify-between pb-3 sm:pb-6">
           {/* Logo & Wordmark Brand Identity */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
-            <SauravLogo className="w-9 h-9 sm:w-11 sm:h-11 transition-transform group-hover:scale-105" priority />
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3.5 group">
+            <SauravLogo className="w-11 h-11 sm:w-12 sm:h-12 transition-transform group-hover:scale-105" priority />
             <SauravWordmark subtitle="MEDICAL" size="md" />
           </Link>
 

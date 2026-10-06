@@ -62,15 +62,15 @@ export function AgencyHeader() {
       <div className="w-full bg-white/95 backdrop-blur-xl py-2.5 sm:py-3 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-6">
           {/* Logo & Identity */}
-          <Link href="/agency" className="flex items-center gap-2 sm:gap-3 min-w-0 group">
-            <SauravLogo className="w-10 h-10 sm:w-11 sm:h-11 transition-transform group-hover:scale-105 shrink-0" priority />
+          <Link href="/agency" className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 group">
+            <SauravLogo className="w-11 h-11 sm:w-12 sm:h-12 transition-transform group-hover:scale-105 shrink-0" priority />
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="font-black text-slate-900 text-xs xs:text-sm sm:text-base lg:text-lg tracking-tight truncate">
+                <span className="font-black text-slate-900 text-sm sm:text-lg lg:text-xl tracking-tight truncate">
                   Saurav Medical Agency
                 </span>
               </div>
-              <span className="text-[10px] sm:text-xs font-semibold text-slate-500 block leading-tight mt-0.5 truncate">
+              <span className="text-[11px] sm:text-xs font-semibold text-slate-500 block leading-tight mt-0.5 truncate">
                 <span className="sm:hidden">Ethical &amp; Vaccines</span>
                 <span className="hidden sm:inline">Ethical Medicines &amp; Cold Chain Vaccines</span>
               </span>
