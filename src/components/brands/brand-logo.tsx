@@ -178,7 +178,7 @@ export function BrandLogo({ name, category, specialty, badge }: BrandLogoProps) 
     if (n.includes("dr reddy")) {
       return (
         <div className="flex items-center gap-1">
-          <span className="font-bold text-purple-700 text-xs">Dr.Reddy's</span>
+          <span className="font-bold text-purple-700 text-xs">Dr.Reddy&apos;s</span>
           <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
         </div>
       );
